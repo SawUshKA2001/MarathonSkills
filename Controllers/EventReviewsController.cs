@@ -5,15 +5,32 @@ using System.Linq;
 
 namespace MarathonSkills.Controllers
 {
+    /// <summary>
+    /// Логика взаимодействия с БД для таблицы event_reviews
+    /// </summary>
     public class EventReviewsController
     {
         readonly Core db = new Core();
 
+        /// <summary>
+        /// Получение отзывов
+        /// </summary>
+        /// <returns>
+        /// Лист с отзывами
+        /// </returns>
         public List<event_reviews> GetReviews()
         {
             return db.context.event_reviews.ToList();
         }
 
+        /// <summary>
+        /// Добавление нового отзыва
+        /// </summary>
+        /// <param name="userId">ID пользователя</param>
+        /// <param name="eventId">ID забега</param>
+        /// <param name="rating">Оценка забега</param>
+        /// <param name="reviewText"> Текст отзыва</param>
+        /// <returns></returns>
         public bool AddNewReview(int userId, int eventId, int rating, string reviewText)
         {
             try

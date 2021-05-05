@@ -10,6 +10,9 @@ namespace MarathonSkills.Views
     public partial class StartingPage : Page
     {
         readonly MarathonsController marathonObj = new MarathonsController();
+        /// <summary>
+        /// Инициализация страницы StartingPage
+        /// </summary>
         public StartingPage()
         {
             InitializeComponent();

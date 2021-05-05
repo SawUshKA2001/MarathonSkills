@@ -16,6 +16,9 @@ namespace MarathonSkills.Views.ViewerPages
         readonly EventsController eventObj = new EventsController();
         readonly UsersController userObj = new UsersController();
         int rating;
+        /// <summary>
+        /// Инициализация страницы ViewerAddReviewPage
+        /// </summary>
         public ViewerAddReviewPage()
         {
             InitializeComponent();
@@ -27,13 +30,23 @@ namespace MarathonSkills.Views.ViewerPages
             EventComboBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Выбран RadioButton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton button = sender as RadioButton;
             rating = Convert.ToInt32(button.Tag);
-            Console.WriteLine(rating);
         }
 
+        /// <summary>
+        /// Обновление границ заполняемых полей
+        /// </summary>
+        /// <returns>
+        /// Информация о незаполненых полях
+        /// </returns>
         private string SetBorders()
         {
             string errorsString = String.Empty;
@@ -48,6 +61,11 @@ namespace MarathonSkills.Views.ViewerPages
             return errorsString;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку добавления отзыва
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ReviewButton_Click(object sender, RoutedEventArgs e)
         {
             string errors = SetBorders();

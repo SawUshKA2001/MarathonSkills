@@ -8,6 +8,9 @@ namespace MarathonSkills.Views.ViewerPages
     /// </summary>
     public partial class ViewerMenuPage : Page
     {
+        /// <summary>
+        /// Инициализация страницы ViewerMenuPage
+        /// </summary>
         public ViewerMenuPage()
         {
             InitializeComponent();

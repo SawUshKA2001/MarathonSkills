@@ -23,9 +23,15 @@ namespace MarathonSkills.Views.AdminPages
     /// </summary>
     public partial class AdminUserEditPage : Page
     {
-        GendersController genObj = new GendersController();
-        UsersController userObj = new UsersController();
-        StringCheckClass strObj = new StringCheckClass();
+        readonly GendersController genObj = new GendersController();
+        readonly UsersController userObj = new UsersController();
+        readonly StringCheckClass strObj = new StringCheckClass();
+        /// <summary>
+        /// Инициализация элементов страницы AdminUserEditPage
+        /// </summary>
+        /// <param name="currentUser">
+        /// Полученные данные о пользователе
+        /// </param>
         public AdminUserEditPage(users currentUser)
         {
             InitializeComponent();
@@ -40,6 +46,12 @@ namespace MarathonSkills.Views.AdminPages
             GenderComboBox.SelectedValue = currentUser.gender_code;
         }
 
+        /// <summary>
+        /// Обновление границ заполняемых полей
+        /// </summary>
+        /// <returns>
+        /// Возвращает строку с информацией о незаполненных полях 
+        /// </returns>
         private string SetBorders()
         {
             FirstNameTextBox.BorderBrush = Brushes.Black;
@@ -74,10 +86,20 @@ namespace MarathonSkills.Views.AdminPages
             }
             return errorString;
         }
+        /// <summary>
+        /// Нажатие на кнопку Отмена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
         }
+        /// <summary>
+        /// Нажатие на кнопку сохранения информации о пользователе
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveProfileButton_Click(object sender, RoutedEventArgs e)
         {
             string errors = SetBorders();
@@ -92,6 +114,9 @@ namespace MarathonSkills.Views.AdminPages
             }
         }
 
+        /// <summary>
+        /// Обновление данных о пользователе
+        /// </summary>
         private void UpdateRunnerInfo()
         {
             try

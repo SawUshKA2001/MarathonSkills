@@ -11,12 +11,20 @@ namespace MarathonSkills.Views
     /// </summary>
     public partial class AuthPage : Page
     {
+        /// <summary>
+        /// Инициализация элементов страницы AuthPage
+        /// </summary>
         public AuthPage()
         {
             InitializeComponent();
             Manager.CurrentUser = String.Empty;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку посмотреть пароль
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SeePasswordButton_Click(object sender, RoutedEventArgs e)
         {
             if (VisiblePasswordStackPanel.Visibility == Visibility.Collapsed)
@@ -35,6 +43,11 @@ namespace MarathonSkills.Views
 
         readonly UsersController objUser = new UsersController();
 
+        /// <summary>
+        /// Нажатие на кнопку Авторизироваться
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AuthButton_Click(object sender, RoutedEventArgs e)
         {
             string userPassword;
@@ -66,6 +79,11 @@ namespace MarathonSkills.Views
             }
         }
 
+        /// <summary>
+        /// Нажатие на кнопку Отмена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();

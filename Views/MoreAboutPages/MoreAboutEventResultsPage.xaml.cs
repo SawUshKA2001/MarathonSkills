@@ -11,6 +11,9 @@ namespace MarathonSkills.Views.MoreAboutPages
     {
         readonly EventResultsController resObj = new EventResultsController();
         readonly EventsController eventObj = new EventsController();
+        /// <summary>
+        /// Инициализация элементов страницы MoreAboutEventResultsPage
+        /// </summary>
         public MoreAboutEventResultsPage()
         {
             InitializeComponent();
@@ -20,6 +23,11 @@ namespace MarathonSkills.Views.MoreAboutPages
             EventComboBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Изменение EventComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EventComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ResultsDataGrid.ItemsSource = resObj.GetCurrentEventResults(Convert.ToInt32(EventComboBox.SelectedValue));

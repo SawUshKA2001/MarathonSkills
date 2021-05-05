@@ -2,9 +2,15 @@
 
 namespace MarathonSkills.Models
 {
+    /// <summary>
+    /// Класс таблицы runners
+    /// </summary>
     public partial class runners
     {
         readonly DonationsController donObj = new DonationsController();
+        /// <summary>
+        /// Высчитываемое значение суммы пожертвований на бегуна
+        /// </summary>
         public int AllDonationsAmount
         {
             get

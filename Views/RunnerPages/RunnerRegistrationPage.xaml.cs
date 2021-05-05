@@ -23,6 +23,9 @@ namespace MarathonSkills.Views.RunnerPages
 
         byte[] runnerImage;
 
+        /// <summary>
+        /// Инициализация страницы RunnerRegistrationPage
+        /// </summary>
         public RunnerRegistrationPage()
         {
             InitializeComponent();
@@ -43,6 +46,11 @@ namespace MarathonSkills.Views.RunnerPages
             CharityComboBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку добавления фотографии пользователя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchPhotoButton_Click(object sender, RoutedEventArgs e)
         {
             PhotoPathTextBox.Text = fileObj.GetPhotoPath();
@@ -53,16 +61,31 @@ namespace MarathonSkills.Views.RunnerPages
             }
         }
 
+        /// <summary>
+        /// Нажатие на кнопку назад
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
         }
 
+        /// <summary>
+        /// Нажатие на кнопку авторизации
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AuthButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AuthPage());
         }
 
+        /// <summary>
+        /// Нажатие на кнопку регистрации
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegistrationButton_Click(object sender, RoutedEventArgs e)
         {
             if (Registration())
@@ -73,6 +96,13 @@ namespace MarathonSkills.Views.RunnerPages
             }
         }
 
+        /// <summary>
+        /// Регистрация бегуна
+        /// </summary>
+        /// <returns>
+        /// true - если регистрация успешна
+        /// false - если регистрация не успешна
+        /// </returns>
         private bool Registration()
         {
             string errorString = SetBorders();
@@ -110,6 +140,12 @@ namespace MarathonSkills.Views.RunnerPages
             }
         }
 
+        /// <summary>
+        /// Обновление границ заполняемых полей
+        /// </summary>
+        /// <returns>
+        /// Информация о незаполненых полях
+        /// </returns>
         private string SetBorders()
         {
             EmailTextBox.BorderBrush = Brushes.Black;

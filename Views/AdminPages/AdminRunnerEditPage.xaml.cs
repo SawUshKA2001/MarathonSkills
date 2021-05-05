@@ -23,13 +23,22 @@ namespace MarathonSkills.Views.AdminPages
     /// </summary>
     public partial class AdminRunnerEditPage : Page
     {
-        GendersController genObj = new GendersController();
-        CountriesController countryObj = new CountriesController();
-        StringCheckClass strObj = new StringCheckClass();
-        FileManagerClass fileObj = new FileManagerClass();
-        RunnersController runObj = new RunnersController();
+        readonly GendersController genObj = new GendersController();
+        readonly CountriesController countryObj = new CountriesController();
+        readonly StringCheckClass strObj = new StringCheckClass();
+        readonly FileManagerClass fileObj = new FileManagerClass();
+        readonly RunnersController runObj = new RunnersController();
 
         byte[] runnerImage;
+        /// <summary>
+        /// Инициализация элементов страницы AdminRunnerEditPage
+        /// </summary>
+        /// <param name="currentUser">
+        /// Полученные данные о пользователя
+        /// </param>
+        /// <param name="currentRunner">
+        /// Полученные данные бегуна
+        /// </param>
         public AdminRunnerEditPage(users currentUser, runners currentRunner)
         {
             InitializeComponent();
@@ -58,6 +67,12 @@ namespace MarathonSkills.Views.AdminPages
 
 
 
+        /// <summary>
+        /// Обновление границ заполняемых элементов 
+        /// </summary>
+        /// <returns>
+        /// Возвращает строку с информацией о незаполненных полях
+        /// </returns>
         private string SetBorders()
         {
             FirstNameTextBox.BorderBrush = Brushes.Black;
@@ -93,11 +108,21 @@ namespace MarathonSkills.Views.AdminPages
             return errorString;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку Отмена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
         }
 
+        /// <summary>
+        /// Нажатие на кнопку добаления фотографии пользователя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchPhotoButton_Click(object sender, RoutedEventArgs e)
         {
             PhotoPathTextBox.Text = fileObj.GetPhotoPath();
@@ -109,6 +134,11 @@ namespace MarathonSkills.Views.AdminPages
 
         }
 
+        /// <summary>
+        /// Нажатие на кнопку сохранения данных о пользователе
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveProfileButton_Click(object sender, RoutedEventArgs e)
         {
             string errors = SetBorders();
@@ -123,6 +153,9 @@ namespace MarathonSkills.Views.AdminPages
             }
         }
 
+        /// <summary>
+        /// Обновление данных о бегуне
+        /// </summary>
         private void UpdateRunnerInfo()
         {
             try

@@ -9,6 +9,9 @@ namespace MarathonSkills.Views.MoreAboutPages
     public partial class MoreAboutCharitiesPage : Page
     {
         readonly CharitiesController charObj = new CharitiesController();
+        /// <summary>
+        /// Инициализация элементов страницы MoreAboutCharitiesPage
+        /// </summary>
         public MoreAboutCharitiesPage()
         {
             InitializeComponent();

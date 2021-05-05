@@ -14,6 +14,9 @@ namespace MarathonSkills.Views.RunnerPages
         readonly UsersController userObj = new UsersController();
         readonly RunnersController runObj = new RunnersController();
 
+        /// <summary>
+        /// Инициализация элементов страницы RunnerCharityPage
+        /// </summary>
         public RunnerCharityPage()
         {
             runners currentRunner = runObj.GetRunnerInfo(runObj.GetRunnerId(userObj.GetUserId(Manager.CurrentUser)));
@@ -28,6 +31,10 @@ namespace MarathonSkills.Views.RunnerPages
             CharityInfoTextBlock.Text = currentRunner.charities.charity_description;
         }
 
+        /// <summary>
+        /// Обозначение логотипа 
+        /// </summary>
+        /// <param name="logo">Логотип в формате byte[]</param>
         private void SetCharityLogo(byte[] logo)
         {
             if (logo != null)

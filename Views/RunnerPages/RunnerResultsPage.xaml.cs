@@ -12,6 +12,9 @@ namespace MarathonSkills.Views.RunnerPages
         readonly EventResultsController resObj = new EventResultsController();
         readonly RunnersController runObj = new RunnersController();
         readonly UsersController userObj = new UsersController();
+        /// <summary>
+        /// Инициализация страницы RunnerResultsPage
+        /// </summary>
         public RunnerResultsPage()
         {
             InitializeComponent();

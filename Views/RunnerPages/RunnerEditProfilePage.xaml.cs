@@ -23,6 +23,9 @@ namespace MarathonSkills.Views.RunnerPages
         readonly runners currentRunner = new runners();
         byte[] runnerImage;
 
+        /// <summary>
+        /// Инициализация элементов страницы RunnerEditProfilePage
+        /// </summary>
         public RunnerEditProfilePage()
         {
             InitializeComponent();
@@ -53,11 +56,21 @@ namespace MarathonSkills.Views.RunnerPages
             AvatarImage.Source = FileManagerClass.GetBytePhotoToImage(currentRunner.runner_image);
         }
 
+        /// <summary>
+        /// Нажатие на кнопку отмена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
         }
 
+        /// <summary>
+        /// Нажатие на кнопку получения фотографии пользователя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchPhotoButton_Click(object sender, RoutedEventArgs e)
         {
             PhotoPathTextBox.Text = fileObj.GetPhotoPath();
@@ -68,6 +81,11 @@ namespace MarathonSkills.Views.RunnerPages
             }
         }
 
+        /// <summary>
+        /// Нажатие на кнопку сохранения 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveProfileButton_Click(object sender, RoutedEventArgs e)
         {
             string errors = SetBorders();
@@ -82,6 +100,9 @@ namespace MarathonSkills.Views.RunnerPages
             }
         }
 
+        /// <summary>
+        /// Обновление данных о бегуне
+        /// </summary>
         private void UpdateRunnerInfo()
         {
             try
@@ -105,6 +126,12 @@ namespace MarathonSkills.Views.RunnerPages
 
         }
 
+        /// <summary>
+        /// Обновление границ заполняемых полей
+        /// </summary>
+        /// <returns>
+        /// Информация о незаполненых полях
+        /// </returns>
         private string SetBorders()
         {
             PasswordPasswordBox.BorderBrush = Brushes.Black;

@@ -7,6 +7,9 @@ namespace MarathonSkills.Views
     /// </summary>
     public partial class ContactsPage : Page
     {
+        /// <summary>
+        /// Инициализация элементов страницы ContactsPage
+        /// </summary>
         public ContactsPage()
         {
             InitializeComponent();

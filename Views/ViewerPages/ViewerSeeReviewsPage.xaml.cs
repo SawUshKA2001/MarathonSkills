@@ -11,6 +11,9 @@ namespace MarathonSkills.Views.ViewerPages
     public partial class ViewerSeeReviewsPage : Page
     {
         readonly EventReviewsController revObj = new EventReviewsController();
+        /// <summary>
+        /// Инициализация страницы ViewerSeeReviewsPage
+        /// </summary>
         public ViewerSeeReviewsPage()
         {
             InitializeComponent();

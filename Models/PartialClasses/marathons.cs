@@ -2,6 +2,9 @@
 {
     public partial class marathons
     {
+        /// <summary>
+        /// Высчитываемое значение имени марафона с годом проведения
+        /// </summary>
         public string YearName
         {
             get

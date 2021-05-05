@@ -20,6 +20,9 @@ namespace MarathonSkills.Views.AdminPages
     /// </summary>
     public partial class AdminCharitiesPage : Page
     {
+        /// <summary>
+        /// Инициализация объектов страницы AdminCharitiesPage
+        /// </summary>
         public AdminCharitiesPage()
         {
             InitializeComponent();

@@ -8,6 +8,9 @@ namespace MarathonSkills
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Инициализация элементов главного окна
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();

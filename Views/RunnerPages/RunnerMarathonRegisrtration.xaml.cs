@@ -17,6 +17,9 @@ namespace MarathonSkills.Views.RunnerPages
         readonly RunnersController runObj = new RunnersController();
         readonly UsersController userObj = new UsersController();
 
+        /// <summary>
+        /// Инициализация элементов страницы RunnerMarathonRegisrtration
+        /// </summary>
         public RunnerMarathonRegisrtration()
         {
             InitializeComponent();
@@ -27,6 +30,11 @@ namespace MarathonSkills.Views.RunnerPages
             EventComboBox.SelectedValuePath = "event_id";
         }
 
+        /// <summary>
+        /// Изменение EventComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EventComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int eventId = Convert.ToInt32(EventComboBox.SelectedValue);
@@ -39,6 +47,11 @@ namespace MarathonSkills.Views.RunnerPages
             TypeTextBlock.Text = eventObj.GetEvents().Where(x => x.event_id == eventId).FirstOrDefault().event_types.event_type_name;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку MarathonRegistrationButton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MarathonRegistrationButton_Click(object sender, RoutedEventArgs e)
         {
             try

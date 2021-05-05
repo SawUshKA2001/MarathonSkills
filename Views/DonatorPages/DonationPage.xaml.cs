@@ -15,6 +15,9 @@ namespace MarathonSkills.Views.DonatorPages
         readonly DonationsController donateObj = new DonationsController();
         readonly RunnersController runObj = new RunnersController();
         readonly StringCheckClass strObj = new StringCheckClass();
+        /// <summary>
+        /// Инициализация элементов страницы DonationPage
+        /// </summary>
         public DonationPage()
         {
             InitializeComponent();
@@ -26,11 +29,21 @@ namespace MarathonSkills.Views.DonatorPages
 
         }
 
+        /// <summary>
+        /// Нажатие на кнопку отмена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
         }
 
+        /// <summary>
+        /// Действие на изменение значения AmountTextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AmountTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (int.TryParse(AmountTextBox.Text, out int amountInt))
@@ -44,21 +57,38 @@ namespace MarathonSkills.Views.DonatorPages
             }
         }
 
+        /// <summary>
+        /// Нажатие на кнопку уменьшения значения AmountTextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DecreaseAmountButton_Click(object sender, RoutedEventArgs e)
         {
             AmountTextBox.Text = (Convert.ToInt32(AmountTextBox.Text) - 1).ToString();
         }
-
+        /// <summary>
+        /// Нажатие на кнопку увеличения значения AmountTextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void IncreaseAmountButton_Click(object sender, RoutedEventArgs e)
         {
             AmountTextBox.Text = (Convert.ToInt32(AmountTextBox.Text) + 1).ToString();
         }
 
+        /// <summary>
+        /// Нажатие на кнопку оплатить
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PayButton_Click(object sender, RoutedEventArgs e)
         {
             AddingDonation();
         }
 
+        /// <summary>
+        /// Произведение оплаты пожертвования
+        /// </summary>
         private void AddingDonation()
         {
             string error = SetBorders();
@@ -90,6 +120,12 @@ namespace MarathonSkills.Views.DonatorPages
             }
         }
 
+        /// <summary>
+        /// Обновление границ заполняемых полей
+        /// </summary>
+        /// <returns>
+        /// Информация о незаполненых полях
+        /// </returns>
         private string SetBorders()
         {
             FirstNameTextBox.BorderBrush = Brushes.Black;
@@ -173,6 +209,11 @@ namespace MarathonSkills.Views.DonatorPages
             return errorString;
         }
 
+        /// <summary>
+        /// Действие на изменение RunnerComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RunnerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var currentRunner = runObj.GetRunnerInfo(Convert.ToInt32(RunnerComboBox.SelectedValue));
@@ -187,11 +228,21 @@ namespace MarathonSkills.Views.DonatorPages
             InfoBorder.Visibility = Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку назад в окне информации о благотворительной организации
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             InfoBorder.Visibility = Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку получения информации о благотворительной организации
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MoreInfoButton_Click(object sender, RoutedEventArgs e)
         {
             InfoBorder.Visibility = Visibility.Visible;

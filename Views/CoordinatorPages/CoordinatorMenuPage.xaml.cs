@@ -7,6 +7,9 @@ namespace MarathonSkills.Views.CoordinatorPages
     /// </summary>
     public partial class CoordinatorMenuPage : Page
     {
+        /// <summary>
+        /// Инициализация объектов страницы CoordinatorMenuPage
+        /// </summary>
         public CoordinatorMenuPage()
         {
             InitializeComponent();

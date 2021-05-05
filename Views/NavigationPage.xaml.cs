@@ -11,6 +11,10 @@ namespace MarathonSkills.Views
     /// </summary>
     public partial class NavigationPage : Page
     {
+        /// <summary>
+        /// Инициализация элементов страницы NavigationPage
+        /// </summary>
+        /// <param name="page">Строка для навигации на нужную страницу</param>
         public NavigationPage(string page)
         {
             InitializeComponent();
@@ -34,6 +38,11 @@ namespace MarathonSkills.Views
             }
         }
 
+        /// <summary>
+        /// Нажатие на кнопку назад
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.NavigationService.CanGoBack)
@@ -42,6 +51,11 @@ namespace MarathonSkills.Views
             }
         }
 
+        /// <summary>
+        /// Навигация NavigationFrame
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NavigationFrame_Navigated(object sender, NavigationEventArgs e)
         {
             if (Manager.CurrentUser == String.Empty)
@@ -54,6 +68,11 @@ namespace MarathonSkills.Views
             }
         }
 
+        /// <summary>
+        /// Нажатие на кнопку выйти
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationFrame.Navigate(new AuthPage());

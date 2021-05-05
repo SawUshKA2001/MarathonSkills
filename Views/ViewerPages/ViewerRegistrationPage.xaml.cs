@@ -16,6 +16,9 @@ namespace MarathonSkills.Views.ViewerPages
         readonly StringCheckClass strObj = new StringCheckClass();
         readonly UsersController userObj = new UsersController();
         readonly GendersController genObj = new GendersController();
+        /// <summary>
+        /// Инициализация страницы ViewerRegistrationPage
+        /// </summary>
         public ViewerRegistrationPage()
         {
             InitializeComponent();
@@ -25,16 +28,32 @@ namespace MarathonSkills.Views.ViewerPages
             GenderComboBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку отмена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
         }
 
+        /// <summary>
+        /// Нажатие на кнопку Авторизироваться
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AuthButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AuthPage());
         }
 
+        /// <summary>
+        /// Обновление границ заполняемых полей
+        /// </summary>
+        /// <returns>
+        /// Информация о незполненых полях
+        /// </returns>
         private string SetBorders()
         {
             EmailTextBox.BorderBrush = Brushes.Black;
@@ -110,6 +129,11 @@ namespace MarathonSkills.Views.ViewerPages
             return errorString;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку регистрации
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegistrationButton_Click(object sender, RoutedEventArgs e)
         {
             string errors = SetBorders();

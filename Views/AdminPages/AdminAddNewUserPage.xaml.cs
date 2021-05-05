@@ -22,16 +22,19 @@ namespace MarathonSkills.Views.AdminPages
     /// </summary>
     public partial class AdminAddNewUserPage : Page
     {
-        GendersController genObj = new GendersController();
-        RolesController roleObj = new RolesController();
-        CountriesController countryObj = new CountriesController();
-        CharitiesController charObj = new CharitiesController();
-        RunnersController runObj = new RunnersController();
-        UsersController userObj = new UsersController();
-        StringCheckClass strObj = new StringCheckClass();
-        FileManagerClass fileObj = new FileManagerClass();
+        readonly GendersController genObj = new GendersController();
+        readonly RolesController roleObj = new RolesController();
+        readonly CountriesController countryObj = new CountriesController();
+        readonly CharitiesController charObj = new CharitiesController();
+        readonly RunnersController runObj = new RunnersController();
+        readonly UsersController userObj = new UsersController();
+        readonly StringCheckClass strObj = new StringCheckClass();
+        readonly FileManagerClass fileObj = new FileManagerClass();
 
         byte[] runnerImage;
+        /// <summary>
+        /// Инициализация данных на странице AdminAddNewUserPage
+        /// </summary>
         public AdminAddNewUserPage()
         {
             InitializeComponent();
@@ -56,6 +59,11 @@ namespace MarathonSkills.Views.AdminPages
             RoleComboBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Действие на изменении выбранного значения в RoleComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RoleComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(RoleComboBox.SelectedValue.ToString() == "3")
@@ -68,6 +76,12 @@ namespace MarathonSkills.Views.AdminPages
             }
         }
 
+        /// <summary>
+        /// Обновление границ заполняемых элементов
+        /// </summary>
+        /// <returns>
+        /// Возвращает строку с сообщением о незаполненых элементах
+        /// </returns>
         private string SetBorders()
         {
             EmailTextBox.BorderBrush = Brushes.Black;
@@ -143,6 +157,11 @@ namespace MarathonSkills.Views.AdminPages
             return errorString;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку добаления нового пользователя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegistrationButton_Click(object sender, RoutedEventArgs e)
         {
             if (Registration())
@@ -152,6 +171,14 @@ namespace MarathonSkills.Views.AdminPages
             }
         }
 
+        /// <summary>
+        /// Осуществление добавления нового пользователя
+        /// </summary>
+        /// <returns>
+        /// Возвращает:
+        /// true - если все данные были введены корректно
+        /// false - если произошла ошибка или данные введены некорректно  
+        /// </returns>
         private bool Registration()
         {
             string errorString = SetBorders();
@@ -213,6 +240,11 @@ namespace MarathonSkills.Views.AdminPages
             }
         }
 
+        /// <summary>
+        /// Нажатие на кнопку добавления аватара пользователя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchPhotoButton_Click(object sender, RoutedEventArgs e)
         {
             PhotoPathTextBox.Text = fileObj.GetPhotoPath();
@@ -223,6 +255,11 @@ namespace MarathonSkills.Views.AdminPages
             }
         }
 
+        /// <summary>
+        /// Нажатие на кнопку Отмена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();

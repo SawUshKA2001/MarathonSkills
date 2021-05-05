@@ -21,9 +21,12 @@ namespace MarathonSkills.Views.AdminPages
     /// </summary>
     public partial class AdminUsersPage : Page
     {
-        RolesController roleObj = new RolesController();
-        UsersController userObj = new UsersController();
-        RunnersController runObj = new RunnersController();
+        readonly RolesController roleObj = new RolesController();
+        readonly UsersController userObj = new UsersController();
+        readonly RunnersController runObj = new RunnersController();
+        /// <summary>
+        /// Инициализация элементов страницы AdminUsersPage
+        /// </summary>
         public AdminUsersPage()
         {
             InitializeComponent();
@@ -33,6 +36,11 @@ namespace MarathonSkills.Views.AdminPages
             RoleComboBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку изменения  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
@@ -47,11 +55,21 @@ namespace MarathonSkills.Views.AdminPages
             }
         }
 
+        /// <summary>
+        /// Действие на изменение значения RoleComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RoleComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UsersDataGrid.ItemsSource = userObj.GetUsersByRole(Convert.ToInt32(RoleComboBox.SelectedValue));
         }
 
+        /// <summary>
+        /// Нажатие на кнопку добавления нового пользователя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AdminAddNewUserPage());

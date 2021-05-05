@@ -11,11 +11,19 @@ namespace MarathonSkills.Views.MoreAboutPages
     /// </summary>
     public partial class BmiCalculatorPage : Page
     {
+        /// <summary>
+        /// Инициализация элементов страницы BmiCalculatorPage
+        /// </summary>
         public BmiCalculatorPage()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Нажатие на кнопку посчитать
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -32,6 +40,12 @@ namespace MarathonSkills.Views.MoreAboutPages
             }
         }
 
+        /// <summary>
+        /// Обновление границ заполняемых полей
+        /// </summary>
+        /// <returns>
+        /// Информация о незаполненных полях
+        /// </returns>
         private string SetBorders()
         {
             string errorsString = String.Empty;

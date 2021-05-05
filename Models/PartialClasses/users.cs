@@ -2,6 +2,9 @@
 {
     public partial class users
     {
+        /// <summary>
+        /// Высчитываемое значение полного имени пользователя
+        /// </summary>
         public string UserFullName
         {
             get
