@@ -1,0 +1,83 @@
+﻿<Page x:Class="MarathonSkills.Views.DonatorPages.DonationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarathonSkills.Views.DonatorPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Пожертвование">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource MainInfoTextBlock}">Пожалуйста выберите бегуна, которого вы отели бы спонсировать и сумму, которую вы хотели бы пожертвовать. Спасибо за вашу поддержку бегунов и их благотворительных учреждений.
+        </TextBlock>
+        <StackPanel Style="{StaticResource HorizontalStackPanel}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Style="{StaticResource MainStackPanel}">
+                <Label Content="Ваша информация" Style="{StaticResource SmallLabel}"/>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Имя:</TextBlock>
+                    <TextBox Style="{StaticResource MainTextBox}" x:Name="FirstNameTextBox"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Фамилия:</TextBlock>
+                    <TextBox Style="{StaticResource MainTextBox}" x:Name="LastNameTextBox"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Отчество:</TextBlock>
+                    <TextBox Style="{StaticResource MainTextBox}" x:Name="OtherNameTextBox"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}" HorizontalAlignment="Left">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Бегун:</TextBlock>
+                    <ComboBox x:Name="RunnerComboBox" Style="{StaticResource MainComboBox}" SelectionChanged="RunnerComboBox_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Карта:</TextBlock>
+                    <TextBox Style="{StaticResource MainTextBox}" x:Name="CardNameTextBox"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Номер карты:</TextBlock>
+                    <TextBox Style="{StaticResource MainTextBox}" x:Name="CardNumberTextBox"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}" HorizontalAlignment="Left">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Срок действия карты:</TextBlock>
+                    <TextBox Style="{StaticResource MainTextBox}" Width="50" x:Name="CardMonthTextBox"/>
+                    <TextBox Style="{StaticResource MainTextBox}" Width="50" x:Name="CardYearTextBox"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}" HorizontalAlignment="Left">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">CVC:</TextBlock>
+                    <TextBox Style="{StaticResource MainTextBox}" Width="50" x:Name="CvcTextBox"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Style="{StaticResource MainStackPanel}">
+                <Label Style="{StaticResource SmallLabel}" Content="Благотворительная организация"/>
+                <StackPanel Style="{StaticResource MainStackPanel}">
+                    <TextBlock Style="{StaticResource MainInfoTextBlock}" x:Name="CharityNameTextBlock"/>
+                    <Button x:Name="MoreInfoButton" Style="{StaticResource MainSmallButton}" Click="MoreInfoButton_Click">Подробнее</Button>
+                </StackPanel>
+                <Label Content="Сумма пожертвования" Style="{StaticResource SmallLabel}"/>
+                <Label Style="{StaticResource MainLabel}" x:Name="AmountLabel"/>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <Button x:Name="DecreaseAmountButton" Style="{StaticResource SideSmallButton}" Content="-" Click="DecreaseAmountButton_Click"/>
+                    <TextBox x:Name="AmountTextBox" Style="{StaticResource MainTextBox}" Width="100" TextChanged="AmountTextBox_TextChanged"/>
+                    <Button x:Name="IncreaseAmountButton" Style="{StaticResource SideSmallButton}" Content="+" Click="IncreaseAmountButton_Click"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <Button x:Name="PayButton" Style="{StaticResource MainSmallButton}" Click="PayButton_Click">Заплатить</Button>
+                    <Button x:Name="CancelButton" Style="{StaticResource MainSmallButton}" Click="CancelButton_Click">Отмена</Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <Border Style="{StaticResource MainBorder}" Grid.RowSpan="2" x:Name="InfoBorder" Visibility="Collapsed">
+            <StackPanel Style="{StaticResource MainStackPanel}">
+                <Image Source="./Resources/avatar_placeholder.png" Style="{StaticResource MainAvatarImage}" x:Name="ChariryLogoImage"/>
+                <Label Style="{StaticResource MainLabel}" x:Name="CharityNameLabel"/>
+                <TextBlock Style="{StaticResource MainInfoTextBlock}" x:Name="CharityDescriptionTextBlock"/>
+                <Button Style="{StaticResource AttentionSmallButton}" Content="Назад" Click="Button_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

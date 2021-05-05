@@ -1,0 +1,34 @@
+﻿<Page x:Class="MarathonSkills.Views.RunnerPages.RunnerCharityPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarathonSkills.Views.RunnerPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Мой спонсор">
+
+    <Grid>
+        <StackPanel Style="{StaticResource HorizontalStackPanel}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Style="{StaticResource MainStackPanel}" Width="300">
+                <Label Style="{StaticResource SmallLabel}"
+                       x:Name="CharityNameLabel"></Label>
+                <Image x:Name="CharityLogoImage" Style="{StaticResource MainAvatarImage}" Source="/Resources/avatar_placeholder.png"></Image>
+                <TextBlock Style="{StaticResource MainInfoTextBlock}"
+                           x:Name="CharityInfoTextBlock"></TextBlock>
+            </StackPanel>
+            <StackPanel Style="{StaticResource MainStackPanel}">
+                <DataGrid Style="{StaticResource MainDataGrid}"
+                          Height="200" Width="300" AutoGenerateColumns="False" x:Name="DonationsDataGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Донор" Width="*" Binding="{Binding DonatorFullName}"/>
+                        <DataGridTextColumn Header="Пожертвование" Width="Auto" Binding="{Binding donation_amount, StringFormat=${0}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Label Style="{StaticResource SmallLabel}" HorizontalAlignment="Right"
+                       x:Name="DonationsSummLabel"></Label>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>

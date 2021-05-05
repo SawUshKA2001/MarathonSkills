@@ -1,0 +1,1125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище MarathonModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="charities">
+          <Key>
+            <PropertyRef Name="charity_id" />
+          </Key>
+          <Property Name="charity_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="charity_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="charity_description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="charity_logo" Type="image" />
+        </EntityType>
+        <EntityType Name="countries">
+          <Key>
+            <PropertyRef Name="country_id" />
+          </Key>
+          <Property Name="country_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="country_code" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="country_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="donations">
+          <Key>
+            <PropertyRef Name="donation_id" />
+          </Key>
+          <Property Name="donation_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="donation_amount" Type="int" Nullable="false" />
+          <Property Name="donator_firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="donator_lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="donator_othername" Type="nvarchar" MaxLength="50" />
+          <Property Name="runner_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="event_registration">
+          <Key>
+            <PropertyRef Name="event_registration_id" />
+          </Key>
+          <Property Name="event_registration_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="event_id" Type="int" Nullable="false" />
+          <Property Name="runner_id" Type="int" Nullable="false" />
+          <Property Name="registration_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="event_results">
+          <Key>
+            <PropertyRef Name="event_result_id" />
+          </Key>
+          <Property Name="event_result_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="runner_id" Type="int" Nullable="false" />
+          <Property Name="event_id" Type="int" Nullable="false" />
+          <Property Name="event_place" Type="int" Nullable="false" />
+          <Property Name="event_time" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="event_reviews">
+          <Key>
+            <PropertyRef Name="event_review_id" />
+          </Key>
+          <Property Name="event_review_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="event_id" Type="int" Nullable="false" />
+          <Property Name="event_review_mark" Type="int" Nullable="false" />
+          <Property Name="event_review_description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="event_review_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="event_types">
+          <Key>
+            <PropertyRef Name="event_type_id" />
+          </Key>
+          <Property Name="event_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="event_type_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="events">
+          <Key>
+            <PropertyRef Name="event_id" />
+          </Key>
+          <Property Name="event_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="event_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="event_datetime" Type="datetime" Nullable="false" />
+          <Property Name="event_is_finished" Type="bit" Nullable="false" />
+          <Property Name="event_type_id" Type="int" Nullable="false" />
+          <Property Name="marathon_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="genders">
+          <Key>
+            <PropertyRef Name="gender_code" />
+          </Key>
+          <Property Name="gender_code" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="gender_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="marathons">
+          <Key>
+            <PropertyRef Name="marathon_id" />
+          </Key>
+          <Property Name="marathon_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marathon_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="marathon_city_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="marathon_year" Type="int" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="runners">
+          <Key>
+            <PropertyRef Name="runner_id" />
+          </Key>
+          <Property Name="runner_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="runner_birthdate" Type="date" Nullable="false" />
+          <Property Name="runner_image" Type="image" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="charity_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_othername" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender_code" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="user_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="volunteers">
+          <Key>
+            <PropertyRef Name="volunteer_id" />
+          </Key>
+          <Property Name="volunteer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="volunteer_firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="volunteer_lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="volunteer_othername" Type="nvarchar" MaxLength="50" />
+          <Property Name="volunteer_birthdate" Type="date" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="gender_code" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_donations_runners">
+          <End Role="runners" Type="Self.runners" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="donations" Type="Self.donations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="runners">
+              <PropertyRef Name="runner_id" />
+            </Principal>
+            <Dependent Role="donations">
+              <PropertyRef Name="runner_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_registration_events">
+          <End Role="events" Type="Self.events" Multiplicity="1" />
+          <End Role="event_registration" Type="Self.event_registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="events">
+              <PropertyRef Name="event_id" />
+            </Principal>
+            <Dependent Role="event_registration">
+              <PropertyRef Name="event_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_registration_runners">
+          <End Role="runners" Type="Self.runners" Multiplicity="1" />
+          <End Role="event_registration" Type="Self.event_registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="runners">
+              <PropertyRef Name="runner_id" />
+            </Principal>
+            <Dependent Role="event_registration">
+              <PropertyRef Name="runner_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_results_events">
+          <End Role="events" Type="Self.events" Multiplicity="1" />
+          <End Role="event_results" Type="Self.event_results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="events">
+              <PropertyRef Name="event_id" />
+            </Principal>
+            <Dependent Role="event_results">
+              <PropertyRef Name="event_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_results_runners">
+          <End Role="runners" Type="Self.runners" Multiplicity="1" />
+          <End Role="event_results" Type="Self.event_results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="runners">
+              <PropertyRef Name="runner_id" />
+            </Principal>
+            <Dependent Role="event_results">
+              <PropertyRef Name="runner_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_reviews_events">
+          <End Role="events" Type="Self.events" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="event_reviews" Type="Self.event_reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="events">
+              <PropertyRef Name="event_id" />
+            </Principal>
+            <Dependent Role="event_reviews">
+              <PropertyRef Name="event_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_reviews_users">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="event_reviews" Type="Self.event_reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="event_reviews">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_events_event_types">
+          <End Role="event_types" Type="Self.event_types" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="events" Type="Self.events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="event_types">
+              <PropertyRef Name="event_type_id" />
+            </Principal>
+            <Dependent Role="events">
+              <PropertyRef Name="event_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_events_marathons">
+          <End Role="marathons" Type="Self.marathons" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="events" Type="Self.events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marathons">
+              <PropertyRef Name="marathon_id" />
+            </Principal>
+            <Dependent Role="events">
+              <PropertyRef Name="marathon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marathons_countries">
+          <End Role="countries" Type="Self.countries" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="marathons" Type="Self.marathons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="country_id" />
+            </Principal>
+            <Dependent Role="marathons">
+              <PropertyRef Name="country_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_runners_charities">
+          <End Role="charities" Type="Self.charities" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="runners" Type="Self.runners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="charities">
+              <PropertyRef Name="charity_id" />
+            </Principal>
+            <Dependent Role="runners">
+              <PropertyRef Name="charity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_runners_countries">
+          <End Role="countries" Type="Self.countries" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="runners" Type="Self.runners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="country_id" />
+            </Principal>
+            <Dependent Role="runners">
+              <PropertyRef Name="country_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_runners_users">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="runners" Type="Self.runners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="runners">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_users_genders">
+          <End Role="genders" Type="Self.genders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="genders">
+              <PropertyRef Name="gender_code" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="gender_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_users_roles">
+          <End Role="roles" Type="Self.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_volunteers_countries">
+          <End Role="countries" Type="Self.countries" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="volunteers" Type="Self.volunteers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="country_id" />
+            </Principal>
+            <Dependent Role="volunteers">
+              <PropertyRef Name="country_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_volunteers_genders">
+          <End Role="genders" Type="Self.genders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="volunteers" Type="Self.volunteers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="genders">
+              <PropertyRef Name="gender_code" />
+            </Principal>
+            <Dependent Role="volunteers">
+              <PropertyRef Name="gender_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище MarathonModelContainer">
+          <EntitySet Name="charities" EntityType="Self.charities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="countries" EntityType="Self.countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="donations" EntityType="Self.donations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="event_registration" EntityType="Self.event_registration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="event_results" EntityType="Self.event_results" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="event_reviews" EntityType="Self.event_reviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="event_types" EntityType="Self.event_types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="events" EntityType="Self.events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="genders" EntityType="Self.genders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="marathons" EntityType="Self.marathons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="runners" EntityType="Self.runners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="volunteers" EntityType="Self.volunteers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_donations_runners" Association="Self.FK_donations_runners">
+            <End Role="runners" EntitySet="runners" />
+            <End Role="donations" EntitySet="donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_registration_events" Association="Self.FK_event_registration_events">
+            <End Role="events" EntitySet="events" />
+            <End Role="event_registration" EntitySet="event_registration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_registration_runners" Association="Self.FK_event_registration_runners">
+            <End Role="runners" EntitySet="runners" />
+            <End Role="event_registration" EntitySet="event_registration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_results_events" Association="Self.FK_event_results_events">
+            <End Role="events" EntitySet="events" />
+            <End Role="event_results" EntitySet="event_results" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_results_runners" Association="Self.FK_event_results_runners">
+            <End Role="runners" EntitySet="runners" />
+            <End Role="event_results" EntitySet="event_results" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_reviews_events" Association="Self.FK_event_reviews_events">
+            <End Role="events" EntitySet="events" />
+            <End Role="event_reviews" EntitySet="event_reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_reviews_users" Association="Self.FK_event_reviews_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="event_reviews" EntitySet="event_reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_events_event_types" Association="Self.FK_events_event_types">
+            <End Role="event_types" EntitySet="event_types" />
+            <End Role="events" EntitySet="events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_events_marathons" Association="Self.FK_events_marathons">
+            <End Role="marathons" EntitySet="marathons" />
+            <End Role="events" EntitySet="events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marathons_countries" Association="Self.FK_marathons_countries">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="marathons" EntitySet="marathons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_runners_charities" Association="Self.FK_runners_charities">
+            <End Role="charities" EntitySet="charities" />
+            <End Role="runners" EntitySet="runners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_runners_countries" Association="Self.FK_runners_countries">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="runners" EntitySet="runners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_runners_users" Association="Self.FK_runners_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="runners" EntitySet="runners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_users_genders" Association="Self.FK_users_genders">
+            <End Role="genders" EntitySet="genders" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_users_roles" Association="Self.FK_users_roles">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_volunteers_countries" Association="Self.FK_volunteers_countries">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="volunteers" EntitySet="volunteers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_volunteers_genders" Association="Self.FK_volunteers_genders">
+            <End Role="genders" EntitySet="genders" />
+            <End Role="volunteers" EntitySet="volunteers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MarathonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="charities">
+          <Key>
+            <PropertyRef Name="charity_id" />
+          </Key>
+          <Property Name="charity_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="charity_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="charity_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="charity_logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="runners" Relationship="Self.FK_runners_charities" FromRole="charities" ToRole="runners" />
+        </EntityType>
+        <EntityType Name="countries">
+          <Key>
+            <PropertyRef Name="country_id" />
+          </Key>
+          <Property Name="country_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="country_code" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="country_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="marathons" Relationship="Self.FK_marathons_countries" FromRole="countries" ToRole="marathons" />
+          <NavigationProperty Name="runners" Relationship="Self.FK_runners_countries" FromRole="countries" ToRole="runners" />
+          <NavigationProperty Name="volunteers" Relationship="Self.FK_volunteers_countries" FromRole="countries" ToRole="volunteers" />
+        </EntityType>
+        <EntityType Name="donations">
+          <Key>
+            <PropertyRef Name="donation_id" />
+          </Key>
+          <Property Name="donation_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="donation_amount" Type="Int32" Nullable="false" />
+          <Property Name="donator_firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="donator_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="donator_othername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="runner_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="runners" Relationship="Self.FK_donations_runners" FromRole="donations" ToRole="runners" />
+        </EntityType>
+        <EntityType Name="event_registration">
+          <Key>
+            <PropertyRef Name="event_registration_id" />
+          </Key>
+          <Property Name="event_registration_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="event_id" Type="Int32" Nullable="false" />
+          <Property Name="runner_id" Type="Int32" Nullable="false" />
+          <Property Name="registration_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="events" Relationship="Self.FK_event_registration_events" FromRole="event_registration" ToRole="events" />
+          <NavigationProperty Name="runners" Relationship="Self.FK_event_registration_runners" FromRole="event_registration" ToRole="runners" />
+        </EntityType>
+        <EntityType Name="event_results">
+          <Key>
+            <PropertyRef Name="event_result_id" />
+          </Key>
+          <Property Name="event_result_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="runner_id" Type="Int32" Nullable="false" />
+          <Property Name="event_id" Type="Int32" Nullable="false" />
+          <Property Name="event_place" Type="Int32" Nullable="false" />
+          <Property Name="event_time" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="events" Relationship="Self.FK_event_results_events" FromRole="event_results" ToRole="events" />
+          <NavigationProperty Name="runners" Relationship="Self.FK_event_results_runners" FromRole="event_results" ToRole="runners" />
+        </EntityType>
+        <EntityType Name="event_types">
+          <Key>
+            <PropertyRef Name="event_type_id" />
+          </Key>
+          <Property Name="event_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="event_type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="events" Relationship="Self.FK_events_event_types" FromRole="event_types" ToRole="events" />
+        </EntityType>
+        <EntityType Name="events">
+          <Key>
+            <PropertyRef Name="event_id" />
+          </Key>
+          <Property Name="event_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="event_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="event_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="event_is_finished" Type="Boolean" Nullable="false" />
+          <Property Name="event_type_id" Type="Int32" Nullable="false" />
+          <Property Name="marathon_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="event_registration" Relationship="Self.FK_event_registration_events" FromRole="events" ToRole="event_registration" />
+          <NavigationProperty Name="event_results" Relationship="Self.FK_event_results_events" FromRole="events" ToRole="event_results" />
+          <NavigationProperty Name="event_types" Relationship="Self.FK_events_event_types" FromRole="events" ToRole="event_types" />
+          <NavigationProperty Name="marathons" Relationship="Self.FK_events_marathons" FromRole="events" ToRole="marathons" />
+          <NavigationProperty Name="event_reviews" Relationship="MarathonModel.FK_event_reviews_events" FromRole="events" ToRole="event_reviews" />
+        </EntityType>
+        <EntityType Name="genders">
+          <Key>
+            <PropertyRef Name="gender_code" />
+          </Key>
+          <Property Name="gender_code" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="gender_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="Self.FK_users_genders" FromRole="genders" ToRole="users" />
+          <NavigationProperty Name="volunteers" Relationship="Self.FK_volunteers_genders" FromRole="genders" ToRole="volunteers" />
+        </EntityType>
+        <EntityType Name="marathons">
+          <Key>
+            <PropertyRef Name="marathon_id" />
+          </Key>
+          <Property Name="marathon_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marathon_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="marathon_city_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="marathon_year" Type="Int32" Nullable="false" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="countries" Relationship="Self.FK_marathons_countries" FromRole="marathons" ToRole="countries" />
+          <NavigationProperty Name="events" Relationship="Self.FK_events_marathons" FromRole="marathons" ToRole="events" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="Self.FK_users_roles" FromRole="roles" ToRole="users" />
+        </EntityType>
+        <EntityType Name="runners">
+          <Key>
+            <PropertyRef Name="runner_id" />
+          </Key>
+          <Property Name="runner_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="runner_birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="runner_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="charity_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="charities" Relationship="Self.FK_runners_charities" FromRole="runners" ToRole="charities" />
+          <NavigationProperty Name="countries" Relationship="Self.FK_runners_countries" FromRole="runners" ToRole="countries" />
+          <NavigationProperty Name="donations" Relationship="Self.FK_donations_runners" FromRole="runners" ToRole="donations" />
+          <NavigationProperty Name="event_registration" Relationship="Self.FK_event_registration_runners" FromRole="runners" ToRole="event_registration" />
+          <NavigationProperty Name="event_results" Relationship="Self.FK_event_results_runners" FromRole="runners" ToRole="event_results" />
+          <NavigationProperty Name="users" Relationship="Self.FK_runners_users" FromRole="runners" ToRole="users" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_othername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender_code" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="genders" Relationship="Self.FK_users_genders" FromRole="users" ToRole="genders" />
+          <NavigationProperty Name="roles" Relationship="Self.FK_users_roles" FromRole="users" ToRole="roles" />
+          <NavigationProperty Name="runners" Relationship="Self.FK_runners_users" FromRole="users" ToRole="runners" />
+          <Property Name="user_password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="event_reviews" Relationship="MarathonModel.FK_event_reviews_users" FromRole="users" ToRole="event_reviews" />
+        </EntityType>
+        <EntityType Name="volunteers">
+          <Key>
+            <PropertyRef Name="volunteer_id" />
+          </Key>
+          <Property Name="volunteer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="volunteer_firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="volunteer_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="volunteer_othername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="volunteer_birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="gender_code" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="countries" Relationship="Self.FK_volunteers_countries" FromRole="volunteers" ToRole="countries" />
+          <NavigationProperty Name="genders" Relationship="Self.FK_volunteers_genders" FromRole="volunteers" ToRole="genders" />
+        </EntityType>
+        <Association Name="FK_runners_charities">
+          <End Role="charities" Type="Self.charities" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="runners" Type="Self.runners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="charities">
+              <PropertyRef Name="charity_id" />
+            </Principal>
+            <Dependent Role="runners">
+              <PropertyRef Name="charity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marathons_countries">
+          <End Role="countries" Type="Self.countries" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="marathons" Type="Self.marathons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="country_id" />
+            </Principal>
+            <Dependent Role="marathons">
+              <PropertyRef Name="country_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_runners_countries">
+          <End Role="countries" Type="Self.countries" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="runners" Type="Self.runners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="country_id" />
+            </Principal>
+            <Dependent Role="runners">
+              <PropertyRef Name="country_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_volunteers_countries">
+          <End Role="countries" Type="Self.countries" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="volunteers" Type="Self.volunteers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="country_id" />
+            </Principal>
+            <Dependent Role="volunteers">
+              <PropertyRef Name="country_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_donations_runners">
+          <End Role="runners" Type="Self.runners" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="donations" Type="Self.donations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="runners">
+              <PropertyRef Name="runner_id" />
+            </Principal>
+            <Dependent Role="donations">
+              <PropertyRef Name="runner_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_registration_events">
+          <End Role="events" Type="Self.events" Multiplicity="1" />
+          <End Role="event_registration" Type="Self.event_registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="events">
+              <PropertyRef Name="event_id" />
+            </Principal>
+            <Dependent Role="event_registration">
+              <PropertyRef Name="event_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_registration_runners">
+          <End Role="runners" Type="Self.runners" Multiplicity="1" />
+          <End Role="event_registration" Type="Self.event_registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="runners">
+              <PropertyRef Name="runner_id" />
+            </Principal>
+            <Dependent Role="event_registration">
+              <PropertyRef Name="runner_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_results_events">
+          <End Role="events" Type="Self.events" Multiplicity="1" />
+          <End Role="event_results" Type="Self.event_results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="events">
+              <PropertyRef Name="event_id" />
+            </Principal>
+            <Dependent Role="event_results">
+              <PropertyRef Name="event_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_results_runners">
+          <End Role="runners" Type="Self.runners" Multiplicity="1" />
+          <End Role="event_results" Type="Self.event_results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="runners">
+              <PropertyRef Name="runner_id" />
+            </Principal>
+            <Dependent Role="event_results">
+              <PropertyRef Name="runner_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_events_event_types">
+          <End Role="event_types" Type="Self.event_types" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="events" Type="Self.events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="event_types">
+              <PropertyRef Name="event_type_id" />
+            </Principal>
+            <Dependent Role="events">
+              <PropertyRef Name="event_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_events_marathons">
+          <End Role="marathons" Type="Self.marathons" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="events" Type="Self.events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marathons">
+              <PropertyRef Name="marathon_id" />
+            </Principal>
+            <Dependent Role="events">
+              <PropertyRef Name="marathon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_users_genders">
+          <End Role="genders" Type="Self.genders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="genders">
+              <PropertyRef Name="gender_code" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="gender_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_volunteers_genders">
+          <End Role="genders" Type="Self.genders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="volunteers" Type="Self.volunteers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="genders">
+              <PropertyRef Name="gender_code" />
+            </Principal>
+            <Dependent Role="volunteers">
+              <PropertyRef Name="gender_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_users_roles">
+          <End Role="roles" Type="Self.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_runners_users">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="runners" Type="Self.runners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="runners">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MarathonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="charities" EntityType="Self.charities" />
+          <EntitySet Name="countries" EntityType="Self.countries" />
+          <EntitySet Name="donations" EntityType="Self.donations" />
+          <EntitySet Name="event_registration" EntityType="Self.event_registration" />
+          <EntitySet Name="event_results" EntityType="Self.event_results" />
+          <EntitySet Name="event_types" EntityType="Self.event_types" />
+          <EntitySet Name="events" EntityType="Self.events" />
+          <EntitySet Name="genders" EntityType="Self.genders" />
+          <EntitySet Name="marathons" EntityType="Self.marathons" />
+          <EntitySet Name="roles" EntityType="Self.roles" />
+          <EntitySet Name="runners" EntityType="Self.runners" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="volunteers" EntityType="Self.volunteers" />
+          <AssociationSet Name="FK_runners_charities" Association="Self.FK_runners_charities">
+            <End Role="charities" EntitySet="charities" />
+            <End Role="runners" EntitySet="runners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marathons_countries" Association="Self.FK_marathons_countries">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="marathons" EntitySet="marathons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_runners_countries" Association="Self.FK_runners_countries">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="runners" EntitySet="runners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_volunteers_countries" Association="Self.FK_volunteers_countries">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="volunteers" EntitySet="volunteers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_donations_runners" Association="Self.FK_donations_runners">
+            <End Role="runners" EntitySet="runners" />
+            <End Role="donations" EntitySet="donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_registration_events" Association="Self.FK_event_registration_events">
+            <End Role="events" EntitySet="events" />
+            <End Role="event_registration" EntitySet="event_registration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_registration_runners" Association="Self.FK_event_registration_runners">
+            <End Role="runners" EntitySet="runners" />
+            <End Role="event_registration" EntitySet="event_registration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_results_events" Association="Self.FK_event_results_events">
+            <End Role="events" EntitySet="events" />
+            <End Role="event_results" EntitySet="event_results" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_results_runners" Association="Self.FK_event_results_runners">
+            <End Role="runners" EntitySet="runners" />
+            <End Role="event_results" EntitySet="event_results" />
+          </AssociationSet>
+          <AssociationSet Name="FK_events_event_types" Association="Self.FK_events_event_types">
+            <End Role="event_types" EntitySet="event_types" />
+            <End Role="events" EntitySet="events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_events_marathons" Association="Self.FK_events_marathons">
+            <End Role="marathons" EntitySet="marathons" />
+            <End Role="events" EntitySet="events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_users_genders" Association="Self.FK_users_genders">
+            <End Role="genders" EntitySet="genders" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_volunteers_genders" Association="Self.FK_volunteers_genders">
+            <End Role="genders" EntitySet="genders" />
+            <End Role="volunteers" EntitySet="volunteers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_users_roles" Association="Self.FK_users_roles">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_runners_users" Association="Self.FK_runners_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="runners" EntitySet="runners" />
+          </AssociationSet>
+          <EntitySet Name="event_reviews" EntityType="MarathonModel.event_reviews" />
+          <AssociationSet Name="FK_event_reviews_events" Association="MarathonModel.FK_event_reviews_events">
+            <End Role="events" EntitySet="events" />
+            <End Role="event_reviews" EntitySet="event_reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_reviews_users" Association="MarathonModel.FK_event_reviews_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="event_reviews" EntitySet="event_reviews" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="event_reviews">
+          <Key>
+            <PropertyRef Name="event_review_id" />
+          </Key>
+          <Property Name="event_review_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="event_id" Type="Int32" Nullable="false" />
+          <Property Name="event_review_mark" Type="Int32" Nullable="false" />
+          <Property Name="event_review_description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="events" Relationship="MarathonModel.FK_event_reviews_events" FromRole="event_reviews" ToRole="events" />
+          <NavigationProperty Name="users" Relationship="MarathonModel.FK_event_reviews_users" FromRole="event_reviews" ToRole="users" />
+          <Property Name="event_review_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <Association Name="FK_event_reviews_events">
+          <End Type="MarathonModel.events" Role="events" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MarathonModel.event_reviews" Role="event_reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="events">
+              <PropertyRef Name="event_id" />
+            </Principal>
+            <Dependent Role="event_reviews">
+              <PropertyRef Name="event_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_reviews_users">
+          <End Type="MarathonModel.users" Role="users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MarathonModel.event_reviews" Role="event_reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="event_reviews">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MarathonModelContainer" CdmEntityContainer="MarathonEntities">
+          <EntitySetMapping Name="charities">
+            <EntityTypeMapping TypeName="MarathonModel.charities">
+              <MappingFragment StoreEntitySet="charities">
+                <ScalarProperty Name="charity_id" ColumnName="charity_id" />
+                <ScalarProperty Name="charity_name" ColumnName="charity_name" />
+                <ScalarProperty Name="charity_description" ColumnName="charity_description" />
+                <ScalarProperty Name="charity_logo" ColumnName="charity_logo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="MarathonModel.countries">
+              <MappingFragment StoreEntitySet="countries">
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="country_code" ColumnName="country_code" />
+                <ScalarProperty Name="country_name" ColumnName="country_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="donations">
+            <EntityTypeMapping TypeName="MarathonModel.donations">
+              <MappingFragment StoreEntitySet="donations">
+                <ScalarProperty Name="donation_id" ColumnName="donation_id" />
+                <ScalarProperty Name="donation_amount" ColumnName="donation_amount" />
+                <ScalarProperty Name="donator_firstname" ColumnName="donator_firstname" />
+                <ScalarProperty Name="donator_lastname" ColumnName="donator_lastname" />
+                <ScalarProperty Name="donator_othername" ColumnName="donator_othername" />
+                <ScalarProperty Name="runner_id" ColumnName="runner_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="event_registration">
+            <EntityTypeMapping TypeName="MarathonModel.event_registration">
+              <MappingFragment StoreEntitySet="event_registration">
+                <ScalarProperty Name="event_registration_id" ColumnName="event_registration_id" />
+                <ScalarProperty Name="event_id" ColumnName="event_id" />
+                <ScalarProperty Name="runner_id" ColumnName="runner_id" />
+                <ScalarProperty Name="registration_datetime" ColumnName="registration_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="event_results">
+            <EntityTypeMapping TypeName="MarathonModel.event_results">
+              <MappingFragment StoreEntitySet="event_results">
+                <ScalarProperty Name="event_result_id" ColumnName="event_result_id" />
+                <ScalarProperty Name="runner_id" ColumnName="runner_id" />
+                <ScalarProperty Name="event_id" ColumnName="event_id" />
+                <ScalarProperty Name="event_place" ColumnName="event_place" />
+                <ScalarProperty Name="event_time" ColumnName="event_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="event_types">
+            <EntityTypeMapping TypeName="MarathonModel.event_types">
+              <MappingFragment StoreEntitySet="event_types">
+                <ScalarProperty Name="event_type_id" ColumnName="event_type_id" />
+                <ScalarProperty Name="event_type_name" ColumnName="event_type_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="events">
+            <EntityTypeMapping TypeName="MarathonModel.events">
+              <MappingFragment StoreEntitySet="events">
+                <ScalarProperty Name="event_id" ColumnName="event_id" />
+                <ScalarProperty Name="event_name" ColumnName="event_name" />
+                <ScalarProperty Name="event_datetime" ColumnName="event_datetime" />
+                <ScalarProperty Name="event_is_finished" ColumnName="event_is_finished" />
+                <ScalarProperty Name="event_type_id" ColumnName="event_type_id" />
+                <ScalarProperty Name="marathon_id" ColumnName="marathon_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="genders">
+            <EntityTypeMapping TypeName="MarathonModel.genders">
+              <MappingFragment StoreEntitySet="genders">
+                <ScalarProperty Name="gender_code" ColumnName="gender_code" />
+                <ScalarProperty Name="gender_name" ColumnName="gender_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marathons">
+            <EntityTypeMapping TypeName="MarathonModel.marathons">
+              <MappingFragment StoreEntitySet="marathons">
+                <ScalarProperty Name="marathon_id" ColumnName="marathon_id" />
+                <ScalarProperty Name="marathon_name" ColumnName="marathon_name" />
+                <ScalarProperty Name="marathon_city_name" ColumnName="marathon_city_name" />
+                <ScalarProperty Name="marathon_year" ColumnName="marathon_year" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="MarathonModel.roles">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="runners">
+            <EntityTypeMapping TypeName="MarathonModel.runners">
+              <MappingFragment StoreEntitySet="runners">
+                <ScalarProperty Name="runner_id" ColumnName="runner_id" />
+                <ScalarProperty Name="runner_birthdate" ColumnName="runner_birthdate" />
+                <ScalarProperty Name="runner_image" ColumnName="runner_image" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="charity_id" ColumnName="charity_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="MarathonModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="user_firstname" ColumnName="user_firstname" />
+                <ScalarProperty Name="user_lastname" ColumnName="user_lastname" />
+                <ScalarProperty Name="user_othername" ColumnName="user_othername" />
+                <ScalarProperty Name="gender_code" ColumnName="gender_code" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="volunteers">
+            <EntityTypeMapping TypeName="MarathonModel.volunteers">
+              <MappingFragment StoreEntitySet="volunteers">
+                <ScalarProperty Name="volunteer_id" ColumnName="volunteer_id" />
+                <ScalarProperty Name="volunteer_firstname" ColumnName="volunteer_firstname" />
+                <ScalarProperty Name="volunteer_lastname" ColumnName="volunteer_lastname" />
+                <ScalarProperty Name="volunteer_othername" ColumnName="volunteer_othername" />
+                <ScalarProperty Name="volunteer_birthdate" ColumnName="volunteer_birthdate" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="gender_code" ColumnName="gender_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="event_reviews">
+            <EntityTypeMapping TypeName="MarathonModel.event_reviews">
+              <MappingFragment StoreEntitySet="event_reviews">
+                <ScalarProperty Name="event_review_date" ColumnName="event_review_date" />
+                <ScalarProperty Name="event_review_description" ColumnName="event_review_description" />
+                <ScalarProperty Name="event_review_mark" ColumnName="event_review_mark" />
+                <ScalarProperty Name="event_id" ColumnName="event_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="event_review_id" ColumnName="event_review_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

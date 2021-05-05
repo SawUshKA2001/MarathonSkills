@@ -1,0 +1,46 @@
+﻿<Page x:Class="MarathonSkills.Views.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarathonSkills.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Авторизация">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource MainInfoTextBlock}" 
+                   HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Row="0">Пожалуйста, авторизуйтесь в системе, используя ваш адрес электронной почты и пароль.
+        </TextBlock>
+        <StackPanel Style="{StaticResource MainStackPanel}" Grid.Row="1">
+            <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                <TextBlock Style="{StaticResource SideInfoTextBlock}">Email:</TextBlock>
+                <TextBox x:Name="EmailTextBox" Style="{StaticResource MainTextBox}"
+                         TabIndex="0"/>
+            </StackPanel>
+            <StackPanel x:Name="HiddenPasswordStackPanel"
+                        Style="{StaticResource HorizontalStackPanel}">
+                <TextBlock Style="{StaticResource SideInfoTextBlock}">Password:</TextBlock>
+                <PasswordBox x:Name="PasswordPasswordBox" Style="{StaticResource MainPasswordBox}"
+                             TabIndex="1"/>
+            </StackPanel>
+            <StackPanel x:Name="VisiblePasswordStackPanel"
+                Style="{StaticResource HorizontalStackPanel}" Visibility="Collapsed">
+                <TextBlock Style="{StaticResource SideInfoTextBlock}">Password:</TextBlock>
+                <TextBox x:Name="PasswordTextBox" Style="{StaticResource MainTextBox}"
+                         TabIndex="2"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                <Button Content="Войти" x:Name="AuthButton" Style="{StaticResource MainSmallButton}" Click="AuthButton_Click" 
+                        TabIndex="3"
+                        IsTabStop="True"/>
+                <Button Content="Показать пароль" x:Name="SeePasswordButton" Style="{StaticResource MainSmallButton}" Click="SeePasswordButton_Click"/>
+                <Button Content="Отмена" x:Name="CancelButton" Style="{StaticResource MainSmallButton}" Click="CancelButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

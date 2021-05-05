@@ -1,0 +1,51 @@
+﻿<Page x:Class="MarathonSkills.Views.RunnerPages.RunnerMarathonRegisrtration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarathonSkills.Views.RunnerPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Регистрация на марафон">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource MainInfoTextBlock}">Выберите забег, на который хотите зарегистрироваться, и ознакомтесь с информацией о забеге.</TextBlock>
+        <StackPanel Style="{StaticResource HorizontalStackPanel}" Grid.Row="1">
+            <TextBlock Style="{StaticResource SideInfoTextBlock}">Забег:</TextBlock>
+            <ComboBox x:Name="EventComboBox" Style="{StaticResource MainComboBox}" SelectionChanged="EventComboBox_SelectionChanged"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Style="{StaticResource MainStackPanel}" x:Name="ContentStackPanel">
+            <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                <TextBlock Style="{StaticResource SideInfoTextBlock}" Text="Марафон:"/>
+                <TextBlock x:Name="MarathonInfoTextBlock"
+                    Style="{StaticResource SideInfoTextBlock}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                <TextBlock Style="{StaticResource SideInfoTextBlock}" Text="Время проведения:"/>
+                <TextBlock x:Name="DateTimeTextBlock"
+                    Style="{StaticResource SideInfoTextBlock}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                <TextBlock Style="{StaticResource SideInfoTextBlock}" Text="Забег:"/>
+                <TextBlock x:Name="NameTextBlock"
+                    Style="{StaticResource SideInfoTextBlock}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                <TextBlock Style="{StaticResource SideInfoTextBlock}" Text="Место проведения:"/>
+                <TextBlock x:Name="PlaceTextBlock"
+                    Style="{StaticResource SideInfoTextBlock}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                <TextBlock Style="{StaticResource SideInfoTextBlock}" Text="Тип забега:"/>
+                <TextBlock x:Name="TypeTextBlock"
+                    Style="{StaticResource SideInfoTextBlock}"/>
+            </StackPanel>
+            <Button x:Name="MarathonRegistrationButton" Style="{StaticResource MainSmallButton}" Click="MarathonRegistrationButton_Click">Зарегистрироваться на забег</Button>
+        </StackPanel>
+    </Grid>
+</Page>
