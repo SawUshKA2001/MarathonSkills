@@ -65,12 +65,19 @@ namespace MarathonSkillsLibrary
 
         public static BitmapImage GetBytePhotoToImage(byte[] bytePhoto)
         {
-            MemoryStream ms = new MemoryStream(bytePhoto);
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = ms;
-            image.EndInit();
-            return image;
+            if (bytePhoto != null)
+            {
+                MemoryStream ms = new MemoryStream(bytePhoto);
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.StreamSource = ms;
+                image.EndInit();
+                return image;
+            }
+            else 
+            {
+                return null;
+            }
         }
 
 

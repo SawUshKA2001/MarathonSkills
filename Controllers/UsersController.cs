@@ -103,5 +103,10 @@ namespace MarathonSkills.Controllers
                 throw new Exception("Ошибка при изменении данных пользователя.");
             }
         }
+
+        public List<users> GetUsersByRole(int roleId)
+        {
+            return GetUsers().Where(x => x.role_id == roleId).ToList();
+        }
     }
 }

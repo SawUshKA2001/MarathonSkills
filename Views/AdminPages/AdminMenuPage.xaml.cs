@@ -11,5 +11,15 @@ namespace MarathonSkills.Views.AdminPages
         {
             InitializeComponent();
         }
+
+        private void UsersButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AdminUsersPage());
+        }
+
+        private void CharitiesButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }

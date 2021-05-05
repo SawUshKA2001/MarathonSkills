@@ -1,0 +1,36 @@
+﻿<Page x:Class="MarathonSkills.Views.AdminPages.AdminUsersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarathonSkills.Views.AdminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Пользователи">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Style="{StaticResource HorizontalStackPanel}">
+            <TextBlock Style="{StaticResource MainInfoTextBlock}">Фильтр по роли пользователей:</TextBlock>
+            <ComboBox x:Name="RoleComboBox" Style="{StaticResource MainComboBox}" SelectionChanged="RoleComboBox_SelectionChanged"></ComboBox>
+            <Button x:Name="AddUserButton" Style="{StaticResource MainSmallButton}" Click="AddUserButton_Click">Добавить пользователя</Button>
+        </StackPanel>
+        <DataGrid Grid.Row="1" x:Name="UsersDataGrid" Style="{StaticResource MainDataGrid}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Email" Binding="{Binding user_email}" Width="Auto"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding UserFullName}" Width="*"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding genders.gender_name}" Width="Auto"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding roles.role_name}" Width="Auto"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource MainSmallButton}" Click="EditButton_Click">Изменить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

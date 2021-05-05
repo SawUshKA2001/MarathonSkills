@@ -1,0 +1,69 @@
+﻿<Page x:Class="MarathonSkills.Views.AdminPages.AdminRunnerEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarathonSkills.Views.AdminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Изменение данных бегуна">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Style="{StaticResource HorizontalStackPanel}">
+            <StackPanel Style="{StaticResource MainStackPanel}">
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Email:</TextBlock>
+                    <TextBox x:Name="EmailTextBox" Style="{StaticResource MainTextBox}" BorderThickness="0" IsEnabled="False"></TextBox>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Имя:</TextBlock>
+                    <TextBox x:Name="FirstNameTextBox" Style="{StaticResource MainTextBox}"></TextBox>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Фамилия:</TextBlock>
+                    <TextBox x:Name="LastNameTextBox" Style="{StaticResource MainTextBox}"></TextBox>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Отчество:</TextBlock>
+                    <TextBox x:Name="OtherNameTextBox" Style="{StaticResource MainTextBox}"></TextBox>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}" HorizontalAlignment="Left">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Пол:</TextBlock>
+                    <ComboBox Style="{StaticResource MainComboBox}" x:Name="GenderComboBox"></ComboBox>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}" HorizontalAlignment="Left">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Дата рождения:</TextBlock>
+                    <DatePicker x:Name="BirthDatePicker" Style="{StaticResource MainDatePicker}"></DatePicker>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}" HorizontalAlignment="Left">
+                    <TextBlock Style="{StaticResource SideInfoTextBlock}">Страна:</TextBlock>
+                    <ComboBox x:Name="CountryComboBox" Style="{StaticResource MainComboBox}"></ComboBox>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Style="{StaticResource MainStackPanel}">
+                <Image x:Name="AvatarImage"
+                    Style="{StaticResource MainAvatarImage}"
+                    Source="/Resources/avatar_placeholder.png">
+
+                </Image>
+                <StackPanel Style="{StaticResource HorizontalStackPanel}">
+                    <TextBox x:Name="PhotoPathTextBox"
+                             IsEnabled="False"
+                             Style="{StaticResource MainTextBox}"
+                             BorderThickness="0"></TextBox>
+                    <Button x:Name="SearchPhotoButton"
+                            Style="{StaticResource MainSmallButton}" Click="SearchPhotoButton_Click">Обзор...
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Style="{StaticResource HorizontalStackPanel}">
+                <Button x:Name="SaveProfileButton" Style="{StaticResource MainSmallButton}" Click="SaveProfileButton_Click">Сохранить</Button>
+                <Button x:Name="CancelButton" Style="{StaticResource MainSmallButton}" Click="CancelButton_Click">Отмена</Button>
+        </StackPanel>
+    </Grid>
+</Page>
