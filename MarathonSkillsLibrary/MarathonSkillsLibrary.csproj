@@ -49,5 +49,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringCheckClass.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="MarathonSkillsLibraryDiagram.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
