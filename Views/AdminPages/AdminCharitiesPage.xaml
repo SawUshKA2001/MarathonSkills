@@ -6,9 +6,36 @@
       xmlns:local="clr-namespace:MarathonSkills.Views.AdminPages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AdminCharitiesPage">
+      Title="Благотворительные организации">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Style="{StaticResource HorizontalStackPanel}">
+        <Button x:Name="AddCharityButton" Style="{StaticResource MainSmallButton}" Content="Добавить благотворительную организацию" Click="AddCharityButton_Click"/>
+            <Button x:Name="SaveToFileButton" Style="{StaticResource MainSmallButton}" Content="Выгрузить данные в CSV файл" Click="SaveToFileButton_Click"/>
+        </StackPanel>
+        <DataGrid Style="{StaticResource MainDataGrid}" Grid.Row="1"
+                  x:Name="CharitiesDataGrid" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="75">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding charity_logo}" Style="{StaticResource MainAvatarImage}"></Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Название" Width="*" Binding="{Binding charity_name}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource MainSmallButton}" Click="EditButton_Click" Content="Изменить"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

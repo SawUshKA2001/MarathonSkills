@@ -79,11 +79,24 @@
     <Compile Include="Models\PartialClasses\marathons.cs" />
     <Compile Include="Models\PartialClasses\runners.cs" />
     <Compile Include="Models\PartialClasses\users.cs" />
+    <Compile Include="Models\PartialClasses\volunteers.cs" />
+    <Compile Include="Views\AdminPages\AdminAddCharity.xaml.cs">
+      <DependentUpon>AdminAddCharity.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdminPages\AdminAddNewUserPage.xaml.cs">
       <DependentUpon>AdminAddNewUserPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AdminPages\AdminAddVolunteerPage.xaml.cs">
+      <DependentUpon>AdminAddVolunteerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdminPages\AdminCharitiesPage.xaml.cs">
       <DependentUpon>AdminCharitiesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminPages\AdminEditCharityPage.xaml.cs">
+      <DependentUpon>AdminEditCharityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminPages\AdminEditVolunteerPage.xaml.cs">
+      <DependentUpon>AdminEditVolunteerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AdminPages\AdminMenuPage.xaml.cs">
       <DependentUpon>AdminMenuPage.xaml</DependentUpon>
@@ -97,14 +110,26 @@
     <Compile Include="Views\AdminPages\AdminUsersPage.xaml.cs">
       <DependentUpon>AdminUsersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AdminPages\VolunteersPage.xaml.cs">
+      <DependentUpon>VolunteersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ContactsPage.xaml.cs">
       <DependentUpon>ContactsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CoordinatorPages\CoordinatorAddRunnerPage.xaml.cs">
+      <DependentUpon>CoordinatorAddRunnerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CoordinatorPages\CoordinatorEditRunnerPage.xaml.cs">
+      <DependentUpon>CoordinatorEditRunnerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CoordinatorPages\CoordinatorMenuPage.xaml.cs">
       <DependentUpon>CoordinatorMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CoordinatorPages\CoordinatorRunnersPage.xaml.cs">
+      <DependentUpon>CoordinatorRunnersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DonatorPages\DonationPage.xaml.cs">
       <DependentUpon>DonationPage.xaml</DependentUpon>
@@ -182,11 +207,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AdminPages\AdminAddCharity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AdminPages\AdminAddNewUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AdminPages\AdminAddVolunteerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AdminPages\AdminCharitiesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdminPages\AdminEditCharityPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdminPages\AdminEditVolunteerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,6 +247,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AdminPages\VolunteersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AuthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -214,7 +259,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CoordinatorPages\CoordinatorAddRunnerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CoordinatorPages\CoordinatorEditRunnerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CoordinatorPages\CoordinatorMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CoordinatorPages\CoordinatorRunnersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

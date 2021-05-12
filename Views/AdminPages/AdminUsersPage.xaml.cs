@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MarathonSkills.Controllers;
+using MarathonSkillsLibrary;
 
 namespace MarathonSkills.Views.AdminPages
 {
@@ -22,8 +23,10 @@ namespace MarathonSkills.Views.AdminPages
     public partial class AdminUsersPage : Page
     {
         readonly RolesController roleObj = new RolesController();
-        readonly UsersController userObj = new UsersController();
+        UsersController userObj = new UsersController();
         readonly RunnersController runObj = new RunnersController();
+        List<Models.users> currentUsers;
+        FileManagerClass fileObj = new FileManagerClass();
         /// <summary>
         /// Инициализация элементов страницы AdminUsersPage
         /// </summary>
@@ -34,6 +37,7 @@ namespace MarathonSkills.Views.AdminPages
             RoleComboBox.SelectedValuePath = "role_id";
             RoleComboBox.DisplayMemberPath = "role_name";
             RoleComboBox.SelectedIndex = 0;
+            userObj = new UsersController();
         }
 
         /// <summary>
@@ -62,7 +66,9 @@ namespace MarathonSkills.Views.AdminPages
         /// <param name="e"></param>
         private void RoleComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            UsersDataGrid.ItemsSource = userObj.GetUsersByRole(Convert.ToInt32(RoleComboBox.SelectedValue));
+            userObj = new UsersController();
+            currentUsers = userObj.GetUsersByRole(Convert.ToInt32(RoleComboBox.SelectedValue));
+            UsersDataGrid.ItemsSource = currentUsers;
         }
 
         /// <summary>
@@ -73,6 +79,40 @@ namespace MarathonSkills.Views.AdminPages
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AdminAddNewUserPage());
+        }
+
+        private void DownloadUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Dictionary<string, List<string>> currentLoadableData = new Dictionary<string, List<string>>();
+                currentLoadableData.Add("Email", new List<string>());
+                currentLoadableData.Add("Пароль", new List<string>());
+                currentLoadableData.Add("Фамилия", new List<string>());
+                currentLoadableData.Add("Имя", new List<string>());
+                currentLoadableData.Add("Отчество", new List<string>());
+                currentLoadableData.Add("Роль", new List<string>());
+                currentLoadableData.Add("Пол", new List<string>());
+                foreach (var item in currentUsers)
+                {
+                    currentLoadableData["Email"].Add(item.user_email);
+                    currentLoadableData["Пароль"].Add(item.user_password);
+                    currentLoadableData["Фамилия"].Add(item.user_lastname);
+                    currentLoadableData["Имя"].Add(item.user_firstname);
+                    currentLoadableData["Отчество"].Add(item.user_othername);
+                    currentLoadableData["Роль"].Add(item.roles.role_name);
+                    currentLoadableData["Пол"].Add(item.genders.gender_name);
+                }
+
+                if (fileObj.DownLoadToCsvFile(currentLoadableData))
+                {
+                    MessageBox.Show("Сохранение прошло успешно!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

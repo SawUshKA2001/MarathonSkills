@@ -11,7 +11,7 @@
     <Grid>
         <UniformGrid Style="{StaticResource MainUniformGrid}" Grid.Row="1">
             <Button x:Name="UsersButton" Content="Пользователи" Style="{DynamicResource MainBigButton}" Click="UsersButton_Click"></Button>
-            <Button x:Name="VolunteersButton" Content="Волонтёры" Style="{DynamicResource MainBigButton}"></Button>
+            <Button x:Name="VolunteersButton" Content="Волонтёры" Style="{DynamicResource MainBigButton}" Click="VolunteersButton_Click"></Button>
             <Button x:Name="CharitiesButton" Content="Благотворительные организации" Style="{DynamicResource MainBigButton}" Click="CharitiesButton_Click"></Button>
         </UniformGrid>
     </Grid>

@@ -25,6 +25,19 @@ namespace MarathonSkillsLibrary
                 return null;
             }
         }
+        private string GetFilePath(string title, string filter, SaveFileDialog saveFile)
+        {
+            saveFile.Title = title;
+            saveFile.Filter = filter;
+            if (saveFile.ShowDialog() == true)
+            {
+                return saveFile.FileName;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public string GetPhotoPath()
         {
@@ -80,6 +93,51 @@ namespace MarathonSkillsLibrary
             }
         }
 
+        /// <summary>
+        /// Выгрузка заданных данных в CSV файл
+        /// </summary>
+        /// <param name="data">
+        /// Словарь с выгружаемыми данными
+        /// </param>
+        /// <returns>
+        /// true - если выгрузка прошла успешно
+        /// false - если выгрузка не произошла
+        /// Exception("Произошла ошибка при сохранении данных") - если произошла ошибка
+        /// </returns>
+        public bool DownLoadToCsvFile(Dictionary<string, List<string>> data)
+        {
+            SaveFileDialog file = new SaveFileDialog();
+            string nameFile = GetFilePath("Сохранение файла csv", "Text files(.csv)|.csv", file);
+            if (nameFile != null)
+            {
+                try
+                {
+                    using (StreamWriter wr = new StreamWriter(nameFile))
+                    {
 
+                        wr.WriteLine(String.Join(";", data.Keys.ToList()));
+
+
+                        List<List<string>> dataValues = data.Values.ToList();
+                        for (int i = 0; i < dataValues[0].Count; i++)
+                        {
+                            List<string> dataRow = new List<string>();
+                            foreach (var item in data.Keys.ToList())
+                            {
+                                dataRow.Add(data[item][i]);
+                            }
+                            wr.WriteLine(String.Join(";", dataRow));
+                        }
+                    }
+                    return true;
+                }
+                catch
+                {
+                    throw new Exception("Произошла ошибка при сохранении данных");
+                }
+            }
+
+            return false;
+        }
     }
 }

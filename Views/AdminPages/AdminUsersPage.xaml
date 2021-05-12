@@ -16,6 +16,7 @@
             <TextBlock Style="{StaticResource MainInfoTextBlock}">Фильтр по роли пользователей:</TextBlock>
             <ComboBox x:Name="RoleComboBox" Style="{StaticResource MainComboBox}" SelectionChanged="RoleComboBox_SelectionChanged"></ComboBox>
             <Button x:Name="AddUserButton" Style="{StaticResource MainSmallButton}" Click="AddUserButton_Click">Добавить пользователя</Button>
+            <Button x:Name="DownloadUsersButton" Style="{StaticResource MainSmallButton}" Click="DownloadUserButton_Click">Выгрузить данные в файл</Button>
         </StackPanel>
         <DataGrid Grid.Row="1" x:Name="UsersDataGrid" Style="{StaticResource MainDataGrid}" AutoGenerateColumns="False">
             <DataGrid.Columns>

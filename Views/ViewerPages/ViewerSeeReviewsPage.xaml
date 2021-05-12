@@ -17,10 +17,10 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Style="{StaticResource HorizontalStackPanel}">
-                        <TextBlock Style="{StaticResource SideInfoTextBlock}" Text="{Binding event_review_date}" TextAlignment="Left"></TextBlock>
-                        <TextBlock Style="{StaticResource SideInfoTextBlock}" Text="{Binding events.event_name}"></TextBlock>
-                        <TextBlock Style="{StaticResource SideInfoTextBlock}" Text="{Binding users.UserFullName}"></TextBlock>
-                        <TextBlock Style="{StaticResource MainInfoTextBlock}" Text="{Binding event_review_description}"></TextBlock>
+                        <TextBlock Style="{StaticResource SideInfoTextBlock}" Text="{Binding event_review_date}" TextAlignment="Left" Width="200"></TextBlock>
+                        <TextBlock Style="{StaticResource SideInfoTextBlock}" Text="{Binding events.event_name}" TextAlignment="Left" Width="200"></TextBlock>
+                        <TextBlock Style="{StaticResource SideInfoTextBlock}" Text="{Binding users.UserFullName}" TextAlignment="Left" Width="250"></TextBlock>
+                        <TextBlock Style="{StaticResource MainInfoTextBlock}" Text="{Binding event_review_description}" TextAlignment="Left" Width="300"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

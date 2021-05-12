@@ -1,0 +1,35 @@
+﻿<Page x:Class="MarathonSkills.Views.AdminPages.VolunteersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarathonSkills.Views.AdminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Волонтёры">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Style="{StaticResource HorizontalStackPanel}">
+            <Button x:Name="AddVolunteerButton" Style="{StaticResource MainSmallButton}" Content="Добавить волонтёра" Click="AddVolunteerButton_Click"/>
+            <Button x:Name="DownloadVolunteersButton" Style="{StaticResource MainSmallButton}" Content="Выгрузить волонтёров в файл" Click="DownloadVolunteersButton_Click"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" x:Name="VolunteersDataGrid" Style="{StaticResource MainDataGrid}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding VolunteerFullName}" Width="*"/>
+                <DataGridTextColumn Header="Страна" Binding="{Binding countries.country_name}"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding genders.gender_name}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource MainSmallButton}" Click="EditButton_Click">Изменить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

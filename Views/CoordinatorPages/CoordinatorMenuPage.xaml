@@ -6,9 +6,12 @@
       xmlns:local="clr-namespace:MarathonSkills.Views.CoordinatorPages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CoordinatorMenuPage">
+      Title="Меню координатора">
 
     <Grid>
-        
+        <UniformGrid Style="{StaticResource MainUniformGrid}">
+            <Button x:Name="RunnersButton" Style="{StaticResource MainBigButton}" Click="RunnersButton_Click">Бегуны</Button>
+            <Button x:Name="CharitiesButton" Style="{StaticResource MainBigButton}" Click="CharitiesButton_Click">Благотворительные организации</Button>
+        </UniformGrid>
     </Grid>
 </Page>

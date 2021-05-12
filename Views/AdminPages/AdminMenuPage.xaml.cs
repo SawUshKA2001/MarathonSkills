@@ -32,7 +32,12 @@ namespace MarathonSkills.Views.AdminPages
         /// <param name="e"></param>
         private void CharitiesButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            this.NavigationService.Navigate(new AdminCharitiesPage());
+        }
 
+        private void VolunteersButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new VolunteersPage());
         }
     }
 }

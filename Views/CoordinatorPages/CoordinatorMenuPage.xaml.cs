@@ -14,5 +14,15 @@ namespace MarathonSkills.Views.CoordinatorPages
         {
             InitializeComponent();
         }
+
+        private void RunnersButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new CoordinatorRunnersPage());
+        }
+
+        private void CharitiesButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AdminPages.AdminCharitiesPage());
+        }
     }
 }
