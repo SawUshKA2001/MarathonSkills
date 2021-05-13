@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarathonSkillsLibrary", "Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarathonSkillsLibraryUnitTests", "MarathonSkillsLibrary\MarathonSkillsLibraryUnitTests\MarathonSkillsLibraryUnitTests.csproj", "{98E69128-ED40-4D43-A635-641CB20B4D60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarathonSkillsControllersUnitTests", "..\MarathonSkillsControllersUnitTests\MarathonSkillsControllersUnitTests.csproj", "{44E1D8A2-A343-4BFA-98CB-02267055ED17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarathonSkillsControllersUnitTests", "MarathonSkillsControllersUnitTests\MarathonSkillsControllersUnitTests.csproj", "{44E1D8A2-A343-4BFA-98CB-02267055ED17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
