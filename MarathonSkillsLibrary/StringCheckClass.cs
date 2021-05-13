@@ -33,7 +33,7 @@ namespace MarathonSkillsLibrary
 
         public bool NameCheck(string nameString)
         {
-            regex = new Regex(@"[а-яА-Я\sa-zA-Z]{3,}");
+            regex = new Regex(@"^[а-яА-Я\sa-zA-Z]{3,}$");
             match = regex.Match(nameString);
             if (match.Success)
                 return true;
@@ -43,7 +43,7 @@ namespace MarathonSkillsLibrary
 
         public bool CardNumberCheck(string numberString)
         {
-            regex = new Regex(@"[\d]{4}[\s]?[\d]{4}[\s]?[\d]{4}[\s]?[\d]{4}");
+            regex = new Regex(@"^[\d]{4}[\s]?[\d]{4}[\s]?[\d]{4}[\s]?[\d]{4}$");
             match = regex.Match(numberString);
             if (match.Success)
                 return true;
@@ -53,7 +53,7 @@ namespace MarathonSkillsLibrary
 
         public bool CardMonthCheck(string monthString)
         {
-            regex = new Regex(@"[\d]{2}");
+            regex = new Regex(@"^[\d]{2}$");
             match = regex.Match(monthString);
             if (match.Success && Convert.ToInt32(monthString)<=12)
                 return true;
@@ -63,7 +63,7 @@ namespace MarathonSkillsLibrary
 
         public bool CardYearCheck(int year)
         {
-            regex = new Regex(@"20[\d]{2}");
+            regex = new Regex(@"^20[\d]{2}$");
             match = regex.Match(year.ToString());
             if (match.Success)
                 return true;
@@ -73,7 +73,7 @@ namespace MarathonSkillsLibrary
 
         public bool CvcCheck(int cvc)
         {
-            regex = new Regex(@"[\d]{3}");
+            regex = new Regex(@"^[\d]{3}$");
             match = regex.Match(cvc.ToString());
             if (match.Success)
                 return true;
