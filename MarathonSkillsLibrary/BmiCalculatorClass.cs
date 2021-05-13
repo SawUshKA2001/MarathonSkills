@@ -10,7 +10,11 @@ namespace MarathonSkillsLibrary
     {
         public static double CalculateBmi(int weightKg, int heightCm)
         {
-            return Math.Round(Convert.ToDouble(weightKg/((heightCm/100)^2)), 2);
+            if (weightKg > 0 && heightCm > 0)
+            {
+                return Math.Round(Convert.ToDouble(weightKg / ((heightCm / 100) ^ 2)), 2);
+            }
+            else return 0;
         }
 
         public static string GetBmiCategory(double bmi)
