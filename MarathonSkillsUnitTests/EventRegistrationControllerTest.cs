@@ -25,7 +25,7 @@ namespace MarathonSkillsUnitTests
 
 
         [TestMethod]
-        public void AddNewDonation_CorrectDataInserted_trueReturned()
+        public void AddNewRegistration_CorrectDataInserted_trueReturned()
         {
             //Arrange
             regObj = new EventRegistrationController();
@@ -51,7 +51,7 @@ namespace MarathonSkillsUnitTests
         }
         
         [TestMethod]
-        public void AddNewDonation_DoubleDataInserted_falseReturned()
+        public void AddNewRegistration_DoubleDataInserted_falseReturned()
         {
             //Arrange
             regObj = new EventRegistrationController();
@@ -78,7 +78,7 @@ namespace MarathonSkillsUnitTests
         }
         
         [TestMethod]
-        public void AddNewDonation_NullDataInserted_ExceptionReturned()
+        public void AddNewRegistration_NullDataInserted_ExceptionReturned()
         {
             //Arrange
             regObj = new EventRegistrationController();
