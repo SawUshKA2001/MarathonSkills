@@ -62,6 +62,8 @@
     <Compile Include="CountriesControllerTest.cs" />
     <Compile Include="DonationsControllerTest.cs" />
     <Compile Include="EventRegistrationControllerTest.cs" />
+    <Compile Include="EventResultsControllerTest.cs" />
+    <Compile Include="EventReviewsControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

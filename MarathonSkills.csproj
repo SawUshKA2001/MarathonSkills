@@ -196,7 +196,6 @@
     <Compile Include="Controllers\EventRegistrationController.cs" />
     <Compile Include="Controllers\EventResultsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
-    <Compile Include="Controllers\EventTypesController.cs" />
     <Compile Include="Controllers\GendersController.cs" />
     <Compile Include="Controllers\MarathonsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />

@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MarathonSkills.Controllers;
 using MarathonSkills.Models;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace MarathonSkillsUnitTests
 {
@@ -18,7 +19,7 @@ namespace MarathonSkillsUnitTests
             donObj = new DonationsController();
             //Act
             bool result = donObj.GetDonations().Count() > 0;
-            //Assert
+            //Assert    
             Assert.IsTrue(result);
         }
 
@@ -34,18 +35,18 @@ namespace MarathonSkillsUnitTests
             Assert.IsTrue(result);
         }
 
-        //[TestMethod]
-        //public void GetCurrentRunnerDonations_IncorrectRunnerInserted_ExceptionReturned()
-        //{
-        //    //Arrange
-        //    donObj = new DonationsController();
-        //    int runnerId = -12;
-        //    //Act
-        //    Action actAction = () => donObj.GetCurrentRunnerDonations(runnerId);
-        //    //Assert
-        //    Assert.ThrowsException<Exception>(actAction);
-        //}
-        
+        [TestMethod]
+        public void GetCurrentRunnerDonations_IncorrectRunnerInserted_nullReturned()
+        {
+            //Arrange
+            donObj = new DonationsController();
+            int runnerId = -12;
+            //Act
+            List<donations> dons = donObj.GetCurrentRunnerDonations(runnerId);
+            //Assert
+            Assert.IsTrue(dons.Count() == 0);
+        }
+
         [TestMethod]
         public void AddNewDonation_CorrectDataInserted_trueReturned()
         {
