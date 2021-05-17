@@ -20,6 +20,7 @@ namespace MarathonSkills.Models
                 {
                     donationSumm += item.donation_amount;
                 }
+
                 return donationSumm;
             }
         }

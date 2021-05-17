@@ -33,7 +33,14 @@ namespace MarathonSkills.Controllers
         /// </returns>
         public List<donations> GetCurrentRunnerDonations(int runnerId)
         {
-            return GetDonations().Where(x => x.runner_id == runnerId).ToList();
+            try
+            {
+                return GetDonations().Where(x => x.runner_id == runnerId).ToList();
+            }
+            catch
+            {
+                throw new Exception("Произошла ошибка при получении данных!");
+            }
         }
 
         /// <summary>

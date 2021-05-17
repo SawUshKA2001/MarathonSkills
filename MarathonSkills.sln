@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarathonSkillsLibrary", "Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarathonSkillsLibraryUnitTests", "MarathonSkillsLibrary\MarathonSkillsLibraryUnitTests\MarathonSkillsLibraryUnitTests.csproj", "{98E69128-ED40-4D43-A635-641CB20B4D60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarathonSkillsUnitTests", "MarathonSkillsUnitTests\MarathonSkillsUnitTests.csproj", "{5386A6DF-7AC2-45D8-B480-4F52D1918031}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{98E69128-ED40-4D43-A635-641CB20B4D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98E69128-ED40-4D43-A635-641CB20B4D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98E69128-ED40-4D43-A635-641CB20B4D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5386A6DF-7AC2-45D8-B480-4F52D1918031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5386A6DF-7AC2-45D8-B480-4F52D1918031}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5386A6DF-7AC2-45D8-B480-4F52D1918031}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5386A6DF-7AC2-45D8-B480-4F52D1918031}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
