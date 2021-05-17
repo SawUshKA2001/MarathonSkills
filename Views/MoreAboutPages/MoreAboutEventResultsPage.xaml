@@ -17,7 +17,7 @@
             <TextBlock Style="{StaticResource SideInfoTextBlock}">Забег:</TextBlock>
             <ComboBox Style="{StaticResource MainComboBox}" x:Name="EventComboBox" SelectionChanged="EventComboBox_SelectionChanged"></ComboBox>
         </StackPanel>
-        <DataGrid Grid.Row="1" x:Name="ResultsDataGrid" AutoGenerateColumns="False" >
+        <DataGrid Grid.Row="1" x:Name="ResultsDataGrid" AutoGenerateColumns="False" Style="{StaticResource MainDataGrid}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Место" Width="Auto" Binding="{Binding event_place}"/>
                 <DataGridTextColumn Header="Время" Width="Auto" Binding="{Binding event_time}"/>
