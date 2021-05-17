@@ -61,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CountriesControllerTest.cs" />
     <Compile Include="DonationsControllerTest.cs" />
+    <Compile Include="EventRegistrationControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

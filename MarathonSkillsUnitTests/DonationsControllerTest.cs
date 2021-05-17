@@ -33,6 +33,7 @@ namespace MarathonSkillsUnitTests
             //Assert
             Assert.IsTrue(result);
         }
+
         //[TestMethod]
         //public void GetCurrentRunnerDonations_IncorrectRunnerInserted_ExceptionReturned()
         //{
