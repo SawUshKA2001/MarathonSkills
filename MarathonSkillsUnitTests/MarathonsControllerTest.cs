@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using MarathonSkills.Controllers;
 using MarathonSkills.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -7,19 +6,20 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MarathonSkillsUnitTests
 {
     [TestClass]
-    public class EventsControllerTest
+    public class MarathonsControllerTest
     {
         Core db = new Core();
-        EventsController eventObj = new EventsController();
+        MarathonsController donObj = new MarathonsController();
         [TestMethod]
-        public void GetEvents_GetDbData_trueReturned()
+        public void GetCurrentMarathonInfo_GetDbData_trueReturned()
         {
             //Arrange
-            eventObj = new EventsController();
+            donObj = new MarathonsController();
             //Act
-            bool result = eventObj.GetEvents().Count() > 0;
+            bool result = donObj.GetCurrentMarathonInfo() != null;
             //Assert    
             Assert.IsTrue(result);
         }
+
     }
 }

@@ -7,19 +7,20 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MarathonSkillsUnitTests
 {
     [TestClass]
-    public class EventsControllerTest
+    public class GendersControllerTest
     {
         Core db = new Core();
-        EventsController eventObj = new EventsController();
+        GendersController genObj = new GendersController();
         [TestMethod]
-        public void GetEvents_GetDbData_trueReturned()
+        public void GetGenders_GetDbData_trueReturned()
         {
             //Arrange
-            eventObj = new EventsController();
+            genObj = new GendersController();
             //Act
-            bool result = eventObj.GetEvents().Count() > 0;
+            bool result = genObj.GetGenders().Count() > 0;
             //Assert    
             Assert.IsTrue(result);
         }
+
     }
 }
