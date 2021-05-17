@@ -106,6 +106,7 @@ namespace MarathonSkills.Views.CoordinatorPages
             {
                 UpdateRunnerInfo();
                 MessageBox.Show("Профиль успешно отредактирован!");
+                this.NavigationService.Navigate(new CoordinatorRunnersPage());
             }
             else
             {

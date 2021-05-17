@@ -56,7 +56,7 @@ namespace MarathonSkills.Views.AdminPages
                     if (charObj.AddNewCharity(charityImage, NameTextBox.Text, DescriptionTextBox.Text))
                     {
                         MessageBox.Show("Благотворительная организация добалена!");
-                        this.NavigationService.GoBack();
+                        this.NavigationService.Navigate(new AdminCharitiesPage());
                     }
                 }
                 catch (Exception ex)

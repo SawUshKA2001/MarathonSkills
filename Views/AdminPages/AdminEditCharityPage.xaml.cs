@@ -69,7 +69,7 @@ namespace MarathonSkills.Views.AdminPages
                     if (charObj.EditCharity(charityImage, NameTextBox.Text, DescriptionTextBox.Text, charity))
                     {
                         MessageBox.Show("Информация обновлена!");
-                        this.NavigationService.GoBack();
+                        this.NavigationService.Navigate(new AdminCharitiesPage());
                     }
                 }
                 catch(Exception ex)

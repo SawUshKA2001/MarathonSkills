@@ -90,7 +90,7 @@ namespace MarathonSkills.Views.CoordinatorPages
             if (Registration())
             {
                 MessageBox.Show("Добавление прошло успешно!");
-                this.NavigationService.GoBack();
+                this.NavigationService.Navigate(new CoordinatorRunnersPage());
             }
         }
 

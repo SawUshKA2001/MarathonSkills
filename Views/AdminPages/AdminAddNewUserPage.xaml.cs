@@ -167,7 +167,7 @@ namespace MarathonSkills.Views.AdminPages
             if (Registration())
             {
                 MessageBox.Show("Добавление прошло успешно!");
-                this.NavigationService.GoBack();
+                this.NavigationService.Navigate(new AdminUsersPage());
             }
         }
 

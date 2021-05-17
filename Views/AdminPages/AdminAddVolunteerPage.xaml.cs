@@ -59,7 +59,7 @@ namespace MarathonSkills.Views.AdminPages
                         )
                     {
                         MessageBox.Show("Данные успешно добавлены!");
-                        this.NavigationService.GoBack();
+                        this.NavigationService.Navigate(new VolunteersPage());
                     }
                 }
                 catch (Exception ex)

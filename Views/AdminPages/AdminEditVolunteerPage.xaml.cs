@@ -105,7 +105,7 @@ namespace MarathonSkills.Views.AdminPages
                         )
                     {
                         MessageBox.Show("Данные успешно обновлены!");
-                        this.NavigationService.GoBack();
+                        this.NavigationService.Navigate(new VolunteersPage());
                     }
                 }
                 catch (Exception ex)

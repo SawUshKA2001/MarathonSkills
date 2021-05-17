@@ -146,6 +146,7 @@ namespace MarathonSkills.Views.AdminPages
             {
                 UpdateRunnerInfo();
                 MessageBox.Show("Профиль успешно отредактирован!");
+                this.NavigationService.Navigate(new AdminUsersPage());
             }
             else
             {
