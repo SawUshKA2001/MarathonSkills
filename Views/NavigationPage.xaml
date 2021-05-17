@@ -15,6 +15,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Rectangle Fill="{StaticResource MainColor}"/>
+        <Border CornerRadius="10" HorizontalAlignment="Left" Height="50" Margin="10">
+            <Image Source="../Resources/marathon-skills-logo.png"/>
+        </Border>
         <StackPanel Style="{StaticResource HorizontalStackPanel}" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Button Content="Выйти" x:Name="LogoutButton" Style="{StaticResource AttentionSmallButton}" Click="LogoutButton_Click"/>
             <Button Content="Назад" x:Name="BackButton" Style="{StaticResource AttentionSmallButton}" Click="BackButton_Click"/>

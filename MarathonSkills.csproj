@@ -447,7 +447,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\marathon-skills-logo.png" />
+    <Resource Include="Resources\marathon-skills-logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\MarathonModel.Context.tt">
