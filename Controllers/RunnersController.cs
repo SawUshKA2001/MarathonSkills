@@ -59,7 +59,14 @@ namespace MarathonSkills.Controllers
         /// </returns>
         public int GetRunnerId(int userId)
         {
-            return GetRunners().Where(x => x.user_id == userId).FirstOrDefault().runner_id;
+            try
+            {
+                return GetRunners().Where(x => x.user_id == userId).FirstOrDefault().runner_id;
+            }
+            catch
+            {
+                throw new Exception("Ошибка при поиске ID!");
+            }
         }
         /// <summary>
         /// Получение данных о бегунах
@@ -80,7 +87,14 @@ namespace MarathonSkills.Controllers
         /// </returns>
         public runners GetRunnerInfo(int runnerId)
         {
-            return GetRunners().Where(x => x.runner_id == runnerId).FirstOrDefault();
+            try
+            {
+                return GetRunners().Where(x => x.runner_id == runnerId).FirstOrDefault();
+            }
+            catch
+            {
+                throw new Exception("Oшибка при выборе данных!");
+            }
         }
         /// <summary>
         /// Обновление данных бегуна
