@@ -11,16 +11,40 @@ namespace MarathonSkills.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
+    /// <summary>
+    /// Объект таблицы donations
+    /// </summary>
     public partial class donations
     {
+        /// <value>
+        /// ID доната
+        /// </value>
         public int donation_id { get; set; }
+        /// <value>
+        /// Сумма доната
+        /// </value>
         public int donation_amount { get; set; }
+        /// <value>
+        /// Имя донатера
+        /// </value>
         public string donator_firstname { get; set; }
+        /// <value>
+        /// Фамилия донатера
+        /// </value>
         public string donator_lastname { get; set; }
+        /// <value>
+        /// Отчество донатера
+        /// </value>
         public string donator_othername { get; set; }
+        /// <value>
+        /// ID бегуна
+        /// </value>
         public int runner_id { get; set; }
-    
+
+        /// <value>
+        /// Соединение с таблицей runners
+        /// </value>
         public virtual runners runners { get; set; }
     }
 }

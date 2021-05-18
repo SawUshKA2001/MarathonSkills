@@ -12,21 +12,48 @@ namespace MarathonSkills.Models
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// Объект таблицы marathons
+    /// </summary>
     public partial class marathons
     {
+        /// <summary>
+        /// Подключение к внешним ключам
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public marathons()
         {
             this.events = new HashSet<events>();
         }
-    
+
+        /// <value>
+        /// ID марафона
+        /// </value>
         public int marathon_id { get; set; }
+        /// <value>
+        /// Название марафона
+        /// </value>
         public string marathon_name { get; set; }
+        /// <value>
+        /// Город проведения
+        /// </value>
         public string marathon_city_name { get; set; }
+        /// <value>
+        /// Год проведения
+        /// </value>
         public int marathon_year { get; set; }
+        /// <value>
+        /// ID страны проведения
+        /// </value>
         public int country_id { get; set; }
-    
+
+        /// <value>
+        /// Подключение к таблице countries
+        /// </value>
         public virtual countries countries { get; set; }
+        /// <value>
+        /// Подключение к таблице events
+        /// </value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<events> events { get; set; }
     }

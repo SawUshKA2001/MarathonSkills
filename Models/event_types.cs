@@ -12,17 +12,32 @@ namespace MarathonSkills.Models
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// Объект таблицы 
+    /// </summary>
     public partial class event_types
     {
+        /// <summary>
+        /// Подключение к внешним ключам
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public event_types()
         {
             this.events = new HashSet<events>();
         }
-    
+
+        /// <value>
+        /// ID типа забега
+        /// </value>
         public int event_type_id { get; set; }
+        /// <value>
+        /// Название типа забега
+        /// </value>
         public string event_type_name { get; set; }
-    
+
+        /// <value>
+        /// Подключение к таблице events
+        /// </value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<events> events { get; set; }
     }

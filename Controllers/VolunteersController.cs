@@ -5,14 +5,36 @@ using System.Linq;
 
 namespace MarathonSkills.Controllers
 {
+    /// <summary>
+    /// Логика взаимодействия с БД для таблицы volunteers
+    /// </summary>
     public class VolunteersController
     {
         Core db = new Core();
+        /// <summary>
+        /// Получение данных о волонтёрах
+        /// </summary>
+        /// <returns>
+        /// Лист данных о волонтёрах
+        /// </returns>
         public List<volunteers> GetVolunteers()
         {
             return db.context.volunteers.ToList();
         }
 
+        /// <summary>
+        /// Добавление нового волонтёра
+        /// </summary>
+        /// <param name="firstName">Имя</param>
+        /// <param name="lastName">Фамилия</param>
+        /// <param name="otherName">Отчество</param>
+        /// <param name="birthDate">Дата рождения</param>
+        /// <param name="countryId">ID страны</param>
+        /// <param name="genderCode">Код гендера</param>
+        /// <returns>
+        /// true - если добавление прошло успешно
+        /// Exception("Ошибка при добавлении") - если произошла ошибка добавления
+        /// </returns>
         public bool AddNewVolunteer(string firstName, string lastName, string otherName, DateTime birthDate, int countryId, string genderCode)
         {
             try
@@ -36,6 +58,20 @@ namespace MarathonSkills.Controllers
             }
         }
 
+        /// <summary>
+        /// Изменение данных волонтёра
+        /// </summary>
+        /// <param name="firstName">Имя</param>
+        /// <param name="lastName">Фамилия</param>
+        /// <param name="otherName">Отчество</param>
+        /// <param name="birthDate">Дата рождения</param>
+        /// <param name="countryId">ID страны</param>
+        /// <param name="genderCode">Код гендера</param>
+        /// <param name="volunteer">Старые данные волонтёра</param>
+        /// <returns>
+        /// true - если данные успешно обновлены
+        /// Exception("Ошибка при обновлении") - если при обновлении произошла ошибка
+        /// </returns>
         public bool UpdateVolunteer(string firstName, string lastName, string otherName, DateTime birthDate, int countryId, string genderCode, volunteers volunteer)
         {
             try

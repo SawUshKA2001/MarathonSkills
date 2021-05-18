@@ -11,17 +11,44 @@ namespace MarathonSkills.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
+    /// <summary>
+    /// Объект таблицы event_reviews
+    /// </summary>
     public partial class event_reviews
     {
+        /// <value>
+        /// ID отзыва
+        /// </value>
         public int event_review_id { get; set; }
+        /// <value>
+        /// ID пользователя
+        /// </value>
         public int user_id { get; set; }
+        /// <value>
+        /// ID забега
+        /// </value>
         public int event_id { get; set; }
+        /// <value>
+        /// Оценка
+        /// </value>
         public int event_review_mark { get; set; }
+        /// <value>
+        /// Текст отзыва
+        /// </value>
         public string event_review_description { get; set; }
+        /// <value>
+        /// Дата отзыва
+        /// </value>
         public System.DateTime event_review_date { get; set; }
-    
+
+        /// <value>
+        /// Подключение к таблице events
+        /// </value>
         public virtual events events { get; set; }
+        /// <value>
+        /// Подключение к таблице users
+        /// </value>
         public virtual users users { get; set; }
     }
 }

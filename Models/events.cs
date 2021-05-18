@@ -12,8 +12,14 @@ namespace MarathonSkills.Models
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// Объект таблицы events
+    /// </summary>
     public partial class events
     {
+        /// <summary>
+        /// Подключение к внешним ключам
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public events()
         {
@@ -21,20 +27,53 @@ namespace MarathonSkills.Models
             this.event_results = new HashSet<event_results>();
             this.event_reviews = new HashSet<event_reviews>();
         }
-    
+
+        /// <value>
+        /// ID забега
+        /// </value>
         public int event_id { get; set; }
+        /// <value>
+        /// Имя забега
+        /// </value>
         public string event_name { get; set; }
+        /// <value>
+        /// Дата забега
+        /// </value>
         public System.DateTime event_datetime { get; set; }
+        /// <value>
+        /// Статус забега
+        /// </value>
         public bool event_is_finished { get; set; }
+        /// <value>
+        /// ID типа забега
+        /// </value>
         public int event_type_id { get; set; }
+        /// <value>
+        /// ID марафона
+        /// </value>
         public int marathon_id { get; set; }
-    
+
+        /// <value>
+        /// Подключение к таблице event_registration
+        /// </value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<event_registration> event_registration { get; set; }
+        /// <value>
+        /// Подключение к таблице event_results
+        /// </value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<event_results> event_results { get; set; }
+        /// <value>
+        /// Подключение к таблице event_types
+        /// </value>
         public virtual event_types event_types { get; set; }
+        /// <value>
+        /// Подключение к таблице marathons
+        /// </value>
         public virtual marathons marathons { get; set; }
+        /// <value>
+        /// Подключение к таблице event_reviews
+        /// </value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<event_reviews> event_reviews { get; set; }
     }

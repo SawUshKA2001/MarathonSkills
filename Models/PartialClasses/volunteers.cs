@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MarathonSkills.Models
 {
+    /// <summary>
+    /// Объект таблицы volunteers
+    /// </summary>
     public partial class volunteers
     {
         public string VolunteerFullName { get 

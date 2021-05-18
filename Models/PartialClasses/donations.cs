@@ -1,5 +1,8 @@
 ﻿namespace MarathonSkills.Models
 {
+    /// <summary>
+    /// Объект таблицы donations
+    /// </summary>
     public partial class donations
     {
         /// <summary>

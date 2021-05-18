@@ -12,15 +12,39 @@ namespace MarathonSkills.Models
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// Объект таблицы event_results
+    /// </summary>
     public partial class event_results
     {
+        /// <value>
+        /// ID результата
+        /// </value>
         public int event_result_id { get; set; }
+        /// <value>
+        /// ID бегуна
+        /// </value>
         public int runner_id { get; set; }
+        /// <value>
+        /// ID забега
+        /// </value>
         public int event_id { get; set; }
+        /// <value>
+        /// Занятое место
+        /// </value>
         public int event_place { get; set; }
+        /// <value>
+        /// Время результата
+        /// </value>
         public System.TimeSpan event_time { get; set; }
-    
+
+        /// <value>
+        /// Подключение к таблице events
+        /// </value>
         public virtual events events { get; set; }
+        /// <value>
+        /// Подключение к таблице runners
+        /// </value>
         public virtual runners runners { get; set; }
     }
 }

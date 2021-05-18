@@ -1,5 +1,8 @@
 ﻿namespace MarathonSkills.Models
 {
+    /// <summary>
+    /// Объект таблицы users
+    /// </summary>
     public partial class users
     {
         /// <summary>
