@@ -61,7 +61,14 @@ namespace MarathonSkills.Controllers
         /// </returns>
         public int GetUserId(string userEmail)
         {
-            return GetUsers().Where(x => x.user_email == userEmail).FirstOrDefault().user_id;
+            try
+            {
+                return GetUsers().Where(x => x.user_email == userEmail).FirstOrDefault().user_id;
+            }
+            catch
+            {
+                throw new Exception("Ошибка при выводе ID пользователя!");
+            }
         }
 
         /// <summary>
