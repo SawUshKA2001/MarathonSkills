@@ -12,17 +12,31 @@ namespace MarathonSkills.Models
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// Объект таблицы roles
+    /// </summary>
     public partial class roles
     {
+        /// <summary>
+        /// Подключение к внешним ключам 
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public roles()
         {
             this.users = new HashSet<users>();
         }
-    
+        /// <value>
+        /// ID роли
+        /// </value>
         public int role_id { get; set; }
+        /// <value>
+        /// Название роли
+        /// </value>
         public string role_name { get; set; }
     
+        /// <summary>
+        /// Подключение к таблице users
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<users> users { get; set; }
     }

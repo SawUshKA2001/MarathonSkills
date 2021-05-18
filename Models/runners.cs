@@ -12,8 +12,14 @@ namespace MarathonSkills.Models
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// Объект таблицы runners
+    /// </summary>
     public partial class runners
     {
+        /// <summary>
+        /// Подключение к внешним ключам
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public runners()
         {
@@ -21,22 +27,58 @@ namespace MarathonSkills.Models
             this.event_registration = new HashSet<event_registration>();
             this.event_results = new HashSet<event_results>();
         }
-    
+
+        /// <value>
+        /// ID бегуна
+        /// </value>
         public int runner_id { get; set; }
+        /// <value>
+        /// Дата рождения бегуна
+        /// </value>
         public System.DateTime runner_birthdate { get; set; }
+        /// <value>
+        /// Изображение бегуна
+        /// </value>
         public byte[] runner_image { get; set; }
+        /// <value>
+        /// ID пользователя
+        /// </value>
         public int user_id { get; set; }
+        /// <value>
+        /// ID страны
+        /// </value>
         public int country_id { get; set; }
+        /// <value>
+        /// ID благотворительной организации
+        /// </value>
         public int charity_id { get; set; }
-    
+
+        /// <value>
+        /// Подключение к таблице charities
+        /// </value>
         public virtual charities charities { get; set; }
+        /// <value>
+        /// Подключение к таблице countries
+        /// </value>
         public virtual countries countries { get; set; }
+        /// <value>
+        /// Подключение к таблице donations
+        /// </value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<donations> donations { get; set; }
+        /// <value>
+        /// Подключение к таблице event_registration
+        /// </value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<event_registration> event_registration { get; set; }
+        /// <value>
+        /// Подключение к таблице event_results
+        /// </value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<event_results> event_results { get; set; }
+        /// <value>
+        /// Подключение к таблице users
+        /// </value>
         public virtual users users { get; set; }
     }
 }

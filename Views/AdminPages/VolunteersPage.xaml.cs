@@ -24,6 +24,9 @@ namespace MarathonSkills.Views.AdminPages
     {
         List<Models.volunteers> currentVolunteers;
         FileManagerClass fileObj = new FileManagerClass();
+        /// <summary>
+        /// Инициализация страницы VolunteersPage
+        /// </summary>
         public VolunteersPage()
         {
             VolunteersController volObj = new VolunteersController();
@@ -32,16 +35,31 @@ namespace MarathonSkills.Views.AdminPages
             VolunteersDataGrid.ItemsSource = currentVolunteers;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку изменения волонтёра
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
              this.NavigationService.Navigate(new AdminEditVolunteerPage((sender as Button).DataContext as Models.volunteers));
         }
 
+        /// <summary>
+        /// Нажатие на кнопку добавления волонтёра
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddVolunteerButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AdminAddVolunteerPage());
         }
 
+        /// <summary>
+        /// Нажатие на кнопку выгрузки данных о волонтёрах в CSV файл
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DownloadVolunteersButton_Click(object sender, RoutedEventArgs e)
         {
             try

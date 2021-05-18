@@ -26,6 +26,9 @@ namespace MarathonSkills.Views.AdminPages
         VolunteersController volObj = new VolunteersController();
         GendersController genObj = new GendersController();
         CountriesController countryObj = new CountriesController();
+        /// <summary>
+        /// Инициализация страницы AdminAddVolunteerPage
+        /// </summary>
         public AdminAddVolunteerPage()
         {
             InitializeComponent();
@@ -41,6 +44,11 @@ namespace MarathonSkills.Views.AdminPages
             CountryComboBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку добаления волонтёра
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             string errors = SetBorders();
@@ -74,6 +82,12 @@ namespace MarathonSkills.Views.AdminPages
             }
         }
 
+        /// <summary>
+        /// Обновление границ заполняемых полей
+        /// </summary>
+        /// <returns>
+        /// Список ошибок незаполненных полей
+        /// </returns>
         private string SetBorders()
         {
             FirstNameTextBox.BorderBrush = Brushes.Black;

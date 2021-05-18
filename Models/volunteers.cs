@@ -12,17 +12,47 @@ namespace MarathonSkills.Models
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// Объект таблицы volunteers
+    /// </summary>
     public partial class volunteers
     {
+        /// <value>
+        /// ID волонтёра
+        /// </value>
         public int volunteer_id { get; set; }
+        /// <value>
+        /// Имя
+        /// </value>
         public string volunteer_firstname { get; set; }
+        /// <value>
+        /// Фамилия
+        /// </value>
         public string volunteer_lastname { get; set; }
+        /// <value>
+        /// Отчество
+        /// </value>
         public string volunteer_othername { get; set; }
+        /// <value>
+        /// Дата рождения
+        /// </value>
         public System.DateTime volunteer_birthdate { get; set; }
+        /// <value>
+        /// ID страны
+        /// </value>
         public int country_id { get; set; }
+        /// <value>
+        /// Код гендера
+        /// </value>
         public string gender_code { get; set; }
-    
+
+        /// <value>
+        /// Подключение к таблице countries
+        /// </value>
         public virtual countries countries { get; set; }
+        /// <value>
+        /// Подключение к таблице genders
+        /// </value>
         public virtual genders genders { get; set; }
     }
 }

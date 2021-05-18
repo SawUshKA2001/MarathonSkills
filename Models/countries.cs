@@ -12,8 +12,14 @@ namespace MarathonSkills.Models
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// Объект таблицы countries
+    /// </summary>
     public partial class countries
     {
+        /// <summary>
+        /// Подключение внешних ключей
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public countries()
         {
@@ -21,15 +27,33 @@ namespace MarathonSkills.Models
             this.runners = new HashSet<runners>();
             this.volunteers = new HashSet<volunteers>();
         }
-    
+
+        /// <values>
+        /// ID страны
+        /// </values>
         public int country_id { get; set; }
+        /// <values>
+        /// Код страны
+        /// </values>
         public string country_code { get; set; }
+        /// <values>
+        /// Название страны
+        /// </values>
         public string country_name { get; set; }
-    
+
+        /// <values>
+        /// Подключение таблицы marathons
+        /// </values>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<marathons> marathons { get; set; }
+        /// <values>
+        /// Подключение таблицы runners
+        /// </values>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<runners> runners { get; set; }
+        /// <values>
+        /// Подключение таблицы volunteers
+        /// </values>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<volunteers> volunteers { get; set; }
     }

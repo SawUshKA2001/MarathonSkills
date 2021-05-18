@@ -25,6 +25,9 @@ namespace MarathonSkills.Views.CoordinatorPages
         RunnersController runObj = new RunnersController();
         FileManagerClass fileObj = new FileManagerClass();
         List<Models.runners> currentRunners;
+        /// <summary>
+        /// Инициализация страницы CoordinatorRunnersPage
+        /// </summary>
         public CoordinatorRunnersPage()
         {
             InitializeComponent();
@@ -34,16 +37,31 @@ namespace MarathonSkills.Views.CoordinatorPages
 
         }
 
+        /// <summary>
+        /// Нажатие на кнопку изменения данных бегуна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new CoordinatorEditRunnerPage((sender as Button).DataContext as Models.runners));
         }
 
+        /// <summary>
+        /// Нажатие на кнопку добавления бегуна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new CoordinatorAddRunnerPage());
         }
 
+        /// <summary>
+        /// Нажатие на кнопку выгрузки данных в CSV файл
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DownLoadButton_Click(object sender, RoutedEventArgs e)
         {
             try

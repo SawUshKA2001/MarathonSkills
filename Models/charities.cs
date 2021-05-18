@@ -11,20 +11,40 @@ namespace MarathonSkills.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
+    /// <summary>
+    /// Объект таблицы charities
+    /// </summary>
     public partial class charities
     {
+        /// <summary>
+        /// Подключение внешних ключей
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public charities()
         {
             this.runners = new HashSet<runners>();
         }
-    
+        /// <values>
+        /// ID благотворительной организации
+        /// </values>
         public int charity_id { get; set; }
+        /// <values>
+        /// Название благотворительной организации
+        /// </values>
         public string charity_name { get; set; }
+        /// <values>
+        /// Описание благотворительной организации
+        /// </values>
         public string charity_description { get; set; }
+        /// <values>
+        /// Логоти благотворительной организации
+        /// </values>
         public byte[] charity_logo { get; set; }
-    
+
+        /// <values>
+        /// Подключение к таблице runners
+        /// </values>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<runners> runners { get; set; }
     }

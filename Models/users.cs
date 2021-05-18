@@ -12,28 +12,70 @@ namespace MarathonSkills.Models
     using System;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// Объект таблицы users
+    /// </summary>
     public partial class users
     {
+        /// <summary>
+        /// Подключение внешних ключей
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public users()
         {
             this.runners = new HashSet<runners>();
             this.event_reviews = new HashSet<event_reviews>();
         }
-    
+
+        /// <value>
+        /// ID пользователя
+        /// </value>
         public int user_id { get; set; }
+        /// <value>
+        /// Email пользователя
+        /// </value>
         public string user_email { get; set; }
+        /// <value>
+        /// Имя
+        /// </value>
         public string user_firstname { get; set; }
+        /// <value>
+        /// Фамилия
+        /// </value>
         public string user_lastname { get; set; }
+        /// <value>
+        /// Отчество
+        /// </value>
         public string user_othername { get; set; }
+        /// <value>
+        /// Код гендера
+        /// </value>
         public string gender_code { get; set; }
+        /// <value>
+        /// ID роли
+        /// </value>
         public int role_id { get; set; }
+        /// <value>
+        /// Пароль
+        /// </value>
         public string user_password { get; set; }
-    
+
+        /// <value>
+        /// Подключение к таблице genders
+        /// </value>
         public virtual genders genders { get; set; }
+        /// <value>
+        /// Подключение к таблице roles
+        /// </value>
         public virtual roles roles { get; set; }
+        /// <value>
+        /// Подключение к таблице runners
+        /// </value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<runners> runners { get; set; }
+        /// <value>
+        /// Подключение к таблице event_reviews
+        /// </value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<event_reviews> event_reviews { get; set; }
     }

@@ -29,6 +29,12 @@ namespace MarathonSkills.Views.CoordinatorPages
         GendersController genObj = new GendersController();
         CountriesController countryObj = new CountriesController();
         RunnersController runObj = new RunnersController();
+        /// <summary>
+        /// Инициализация страницы CoordinatorEditRunnerPage
+        /// </summary>
+        /// <param name="currentRunner">
+        /// Данные изменяемого бегуна
+        /// </param>
         public CoordinatorEditRunnerPage(runners currentRunner)
         {
             InitializeComponent();
@@ -55,6 +61,11 @@ namespace MarathonSkills.Views.CoordinatorPages
             CountryComboBox.SelectedValue = currentRunner.country_id;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку вставки фотографии
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchPhotoButton_Click(object sender, RoutedEventArgs e)
         {
             PhotoPathTextBox.Text = fileObj.GetPhotoPath();
@@ -64,7 +75,12 @@ namespace MarathonSkills.Views.CoordinatorPages
                 AvatarImage.Source = FileManagerClass.GetPhotoImage(PhotoPathTextBox.Text);
             }
         }
-
+        /// <summary>
+        /// Обновление границ заполняемых полей
+        /// </summary>
+        /// <returns>
+        /// Список ошибок незаполненных полей
+        /// </returns>
         private string SetBorders()
         {
             FirstNameTextBox.BorderBrush = Brushes.Black;
@@ -99,6 +115,11 @@ namespace MarathonSkills.Views.CoordinatorPages
             return errorString;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку сохранения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveProfileButton_Click(object sender, RoutedEventArgs e)
         {
             string errors = SetBorders();
@@ -114,6 +135,9 @@ namespace MarathonSkills.Views.CoordinatorPages
             }
         }
 
+        /// <summary>
+        /// Вызов изменения данных бегуна
+        /// </summary>
         private void UpdateRunnerInfo()
         {
             try
@@ -137,6 +161,11 @@ namespace MarathonSkills.Views.CoordinatorPages
 
         }
 
+        /// <summary>
+        /// Нажатие на кнопку отмены
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();

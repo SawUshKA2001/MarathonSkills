@@ -11,6 +11,9 @@ namespace MarathonSkills.Models
     /// </summary>
     public partial class volunteers
     {
+        /// <summary>
+        /// Вычисляемое значение полного имени волонтёра
+        /// </summary>
         public string VolunteerFullName { get 
             {
                 return volunteer_lastname + " " + volunteer_firstname + " " + volunteer_othername;
