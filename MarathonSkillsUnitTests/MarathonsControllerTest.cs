@@ -8,7 +8,6 @@ namespace MarathonSkillsUnitTests
     [TestClass]
     public class MarathonsControllerTest
     {
-        Core db = new Core();
         MarathonsController donObj = new MarathonsController();
         [TestMethod]
         public void GetCurrentMarathonInfo_GetDbData_trueReturned()

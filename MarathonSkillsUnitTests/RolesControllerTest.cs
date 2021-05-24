@@ -9,7 +9,6 @@ namespace MarathonSkillsUnitTests
     [TestClass]
     public class RolesControllerTest
     {
-        Core db = new Core();
         RolesController roleObj = new RolesController();
         [TestMethod]
         public void GetRoles_GetDbData_trueReturned()

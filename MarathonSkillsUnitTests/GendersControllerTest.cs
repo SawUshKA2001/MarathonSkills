@@ -9,7 +9,6 @@ namespace MarathonSkillsUnitTests
     [TestClass]
     public class GendersControllerTest
     {
-        Core db = new Core();
         GendersController genObj = new GendersController();
         [TestMethod]
         public void GetGenders_GetDbData_trueReturned()

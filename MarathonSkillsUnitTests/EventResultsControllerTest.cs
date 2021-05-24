@@ -9,7 +9,6 @@ namespace MarathonSkillsUnitTests
     [TestClass]
     public class EventResultsControllerTest
     {
-        Core db = new Core();
         EventResultsController resObj = new EventResultsController();
         [TestMethod]
         public void GetDonations_GetDbData_trueReturned()

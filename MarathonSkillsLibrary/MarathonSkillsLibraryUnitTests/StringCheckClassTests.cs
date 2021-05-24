@@ -11,7 +11,7 @@ namespace MarathonSkillsLibraryUnitTests
     [TestClass]
     public class StringCheckClassTests
     {
-        StringCheckClass strObj = new StringCheckClass();
+        readonly StringCheckClass strObj = new StringCheckClass();
         [TestMethod]
         public void EmailCheck_EmptyStringInserted_falseReturned()
         {

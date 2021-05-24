@@ -42,7 +42,7 @@ namespace MarathonSkillsUnitTests
             runObj = new RunnersController();
             int userId = 0;
             //Act
-            Action actAction =()=> runObj.GetRunnerId(userId);
+            void actAction() => runObj.GetRunnerId(userId);
             //Assert
             Assert.ThrowsException<Exception>(actAction);
         }

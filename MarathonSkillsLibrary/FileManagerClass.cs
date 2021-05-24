@@ -10,8 +10,20 @@ using System.Windows.Media.Imaging;
 
 namespace MarathonSkillsLibrary
 {
+    /// <summary>
+    /// Логика взаимодействия с файлами
+    /// </summary>
     public class FileManagerClass
     {
+        /// <summary>
+        /// Получение пути до файла
+        /// </summary>
+        /// <param name="title">Заголовок - диалогового окна</param>
+        /// <param name="filter">Фильтр - диалогового окна</param>
+        /// <param name="openFile">Диалоговое окно</param>
+        /// <returns>
+        /// Путь до выбранного файла
+        /// </returns>
         private string GetFilePath(string title, string filter, OpenFileDialog openFile)
         {
             openFile.Title = title;
@@ -25,6 +37,15 @@ namespace MarathonSkillsLibrary
                 return null;
             }
         }
+        /// <summary>
+        /// Получение пути до файла
+        /// </summary>
+        /// <param name="title">Заголовок - диалогового окна</param>
+        /// <param name="filter">Фильтр - диалогового окна</param>
+        /// <param name="saveFile">Диалоговое окно</param>
+        /// <returns>
+        /// Путь до выбранного файла
+        /// </returns>
         private string GetFilePath(string title, string filter, SaveFileDialog saveFile)
         {
             saveFile.Title = title;
@@ -39,12 +60,23 @@ namespace MarathonSkillsLibrary
             }
         }
 
+        /// <summary>
+        /// Получение пути до изображения
+        /// </summary>
+        /// <returns>
+        /// Путь до изображения
+        /// </returns>
         public string GetPhotoPath()
         {
             OpenFileDialog openFile = new OpenFileDialog();
             return GetFilePath("Выберите фотографию", "PNG file(*.png)|*.png|JPEG file(*.jpeg)|*.jpeg|JPG file(*.jpg)|*.jpg", openFile);
         }
 
+        /// <summary>
+        /// Получение BitmapImage из файла 
+        /// </summary>
+        /// <param name="photoPath">Путь к файлу</param>
+        /// <returns>BitmapImage изображения</returns>
         public static BitmapImage GetPhotoImage(string photoPath)
         {
             if (photoPath != null)
@@ -64,6 +96,11 @@ namespace MarathonSkillsLibrary
             }
         }
 
+        /// <summary>
+        /// Получение byte[] из файла 
+        /// </summary>
+        /// <param name="photoPath">Путь к файлу</param>
+        /// <returns>byte[] изображения</returns>
         public byte[] GetBytePhoto(string photoPath)
         {
             try
@@ -76,6 +113,11 @@ namespace MarathonSkillsLibrary
             }
         }
 
+        /// <summary>
+        /// Конвертация из byte[] в BitmapImage
+        /// </summary>
+        /// <param name="bytePhoto">byte[] изображения</param>
+        /// <returns>BitmapImage изображения</returns>
         public static BitmapImage GetBytePhotoToImage(byte[] bytePhoto)
         {
             if (bytePhoto != null)

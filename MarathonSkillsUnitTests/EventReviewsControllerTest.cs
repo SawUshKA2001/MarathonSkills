@@ -59,7 +59,7 @@ namespace MarathonSkillsUnitTests
             int rating = 0;
             string reviewText = String.Empty;
             //Act
-            Action actAction = ()=> revObj.AddNewReview(userId, eventId, rating, reviewText);
+            void actAction() => revObj.AddNewReview(userId, eventId, rating, reviewText);
             //Assert    
             Assert.ThrowsException<Exception>(actAction);
         }

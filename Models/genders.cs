@@ -11,21 +11,40 @@ namespace MarathonSkills.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
+    /// <summary>
+    /// Объект таблицы genders
+    /// </summary>
     public partial class genders
     {
+        /// <summary>
+        /// Подключение внешних ключей
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public genders()
         {
             this.users = new HashSet<users>();
             this.volunteers = new HashSet<volunteers>();
         }
-    
+
+        /// <value>
+        /// Код гендера
+        /// </value>
         public string gender_code { get; set; }
+
+        /// <value>
+        /// Название гендера
+        /// </value>
         public string gender_name { get; set; }
-    
+
+        /// <summary>
+        /// Подключение к таблице users
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<users> users { get; set; }
+        /// <summary>
+        /// Подключение к таблице volunteers
+        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<volunteers> volunteers { get; set; }
     }

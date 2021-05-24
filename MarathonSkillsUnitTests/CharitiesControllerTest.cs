@@ -58,7 +58,7 @@ namespace MarathonSkillsUnitTests
             string descryption = null;
             //Act
             charObj = new CharitiesController();
-            Action actAction = () => charObj.AddNewCharity(charityLogo, name, descryption);
+            void actAction() => charObj.AddNewCharity(charityLogo, name, descryption);
             //Assert
             Assert.ThrowsException<Exception>(actAction);
         }
@@ -110,7 +110,7 @@ namespace MarathonSkillsUnitTests
             descryption = null;
             //Act
             charObj = new CharitiesController();
-            Action actAction = () => charObj.EditCharity(charityLogo, name, descryption, editableCharity);
+            void actAction() => charObj.EditCharity(charityLogo, name, descryption, editableCharity);
 
             db = new Core();
             charities addedCharity = db.context.charities.Where

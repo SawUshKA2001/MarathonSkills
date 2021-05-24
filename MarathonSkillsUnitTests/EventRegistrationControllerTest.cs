@@ -85,7 +85,7 @@ namespace MarathonSkillsUnitTests
             int eventId = 0;
             int runnerId = 0;
             //Act
-            Action actAction = () => regObj.AddNewRegistration(eventId, runnerId);
+            void actAction() => regObj.AddNewRegistration(eventId, runnerId);
             //Assert
             Assert.ThrowsException<Exception>(actAction);
         }

@@ -87,7 +87,7 @@ namespace MarathonSkillsUnitTests
             string oName = null;
             int runnerId = 0;
             //Act
-            Action actAction = ()=>donObj.AddNewDonation(amount, fName, lName, oName, runnerId);
+            void actAction() => donObj.AddNewDonation(amount, fName, lName, oName, runnerId);
             //Assert
             Assert.ThrowsException<Exception>(actAction);
         }

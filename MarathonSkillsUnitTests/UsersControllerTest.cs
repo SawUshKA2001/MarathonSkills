@@ -103,7 +103,7 @@ namespace MarathonSkillsUnitTests
             userObj = new UsersController();
             string email = "broken@email";
             //Act
-            Action actAction =()=> userObj.GetUserId(email);
+            void actAction() => userObj.GetUserId(email);
             //Assert
             Assert.ThrowsException<Exception>(actAction);
         }
@@ -225,7 +225,7 @@ namespace MarathonSkillsUnitTests
             int roleId = 0;
             string password = null;
             //Act
-            Action actAction =()=> userObj.AddUser(email, fName, lName, oName, genderCode, roleId, password);
+            void actAction() => userObj.AddUser(email, fName, lName, oName, genderCode, roleId, password);
             //Assert
             Assert.ThrowsException<Exception>(actAction);
         }
@@ -293,7 +293,7 @@ namespace MarathonSkillsUnitTests
             genderCode = null;
             password = null;
             //Act
-            Action actAction = ()=> userObj.UpdateUserInfo(email, fName, lName, oName, genderCode, password);
+            void actAction() => userObj.UpdateUserInfo(email, fName, lName, oName, genderCode, password);
             //Assert
             Assert.ThrowsException<Exception>(actAction);
         }
