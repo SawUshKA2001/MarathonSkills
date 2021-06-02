@@ -69,6 +69,7 @@
     <Compile Include="MarathonsControllerTest.cs" />
     <Compile Include="RolesControllerTest.cs" />
     <Compile Include="RunnersControllerTest.cs" />
+    <Compile Include="VolunteersControllerTest.cs" />
     <Compile Include="UsersControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>

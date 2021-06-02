@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MarathonSkillsLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:MarathonSkillsLibrary.BmiCalculatorClass">
+            <summary>
+            Логика для BMI калькулятора
+            </summary>
+        </member>
+        <member name="M:MarathonSkillsLibrary.BmiCalculatorClass.CalculateBmi(System.Int32,System.Int32)">
+            <summary>
+            Вычисление индекса массы тела
+            </summary>
+            <param name="weightKg">Вес в килограмах</param>
+            <param name="heightCm">Рост в сантиметрах</param>
+            <returns>
+            Возвращает индекс массы тела числом
+            </returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.BmiCalculatorClass.GetBmiCategory(System.Double)">
+            <summary>
+            Подбор категории для индекса массы тела
+            </summary>
+            <param name="bmi">Индекс массы тела</param>
+            <returns>
+            Статус индекса массы тела
+            </returns>
+        </member>
+        <member name="T:MarathonSkillsLibrary.FileManagerClass">
+            <summary>
+            Логика взаимодействия с файлами
+            </summary>
+        </member>
+        <member name="M:MarathonSkillsLibrary.FileManagerClass.GetFilePath(System.String,System.String,Microsoft.Win32.OpenFileDialog)">
+            <summary>
+            Получение пути до файла
+            </summary>
+            <param name="title">Заголовок - диалогового окна</param>
+            <param name="filter">Фильтр - диалогового окна</param>
+            <param name="openFile">Диалоговое окно</param>
+            <returns>
+            Путь до выбранного файла
+            </returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.FileManagerClass.GetFilePath(System.String,System.String,Microsoft.Win32.SaveFileDialog)">
+            <summary>
+            Получение пути до файла
+            </summary>
+            <param name="title">Заголовок - диалогового окна</param>
+            <param name="filter">Фильтр - диалогового окна</param>
+            <param name="saveFile">Диалоговое окно</param>
+            <returns>
+            Путь до выбранного файла
+            </returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.FileManagerClass.GetPhotoPath">
+            <summary>
+            Получение пути до изображения
+            </summary>
+            <returns>
+            Путь до изображения
+            </returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.FileManagerClass.GetPhotoImage(System.String)">
+            <summary>
+            Получение BitmapImage из файла 
+            </summary>
+            <param name="photoPath">Путь к файлу</param>
+            <returns>BitmapImage изображения</returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.FileManagerClass.GetBytePhoto(System.String)">
+            <summary>
+            Получение byte[] из файла 
+            </summary>
+            <param name="photoPath">Путь к файлу</param>
+            <returns>byte[] изображения</returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.FileManagerClass.GetBytePhotoToImage(System.Byte[])">
+            <summary>
+            Конвертация из byte[] в BitmapImage
+            </summary>
+            <param name="bytePhoto">byte[] изображения</param>
+            <returns>BitmapImage изображения</returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.FileManagerClass.DownLoadToCsvFile(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            Выгрузка заданных данных в CSV файл
+            </summary>
+            <param name="data">
+            Словарь с выгружаемыми данными
+            </param>
+            <returns>
+            true - если выгрузка прошла успешно
+            false - если выгрузка не произошла
+            Exception("Произошла ошибка при сохранении данных") - если произошла ошибка
+            </returns>
+        </member>
+        <member name="T:MarathonSkillsLibrary.StringCheckClass">
+            <summary>
+            Логика проверки строк 
+            </summary>
+        </member>
+        <member name="M:MarathonSkillsLibrary.StringCheckClass.EmailCheck(System.String)">
+            <summary>
+            Проверка правильности Email
+            </summary>
+            <param name="emailString">Email</param>
+            <returns>
+            true - если Email верный
+            false - если Email неверный
+            </returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.StringCheckClass.PasswordCheck(System.String)">
+            <summary>
+            Проверка правильности пароля
+            </summary>
+            <param name="passwordString">Пароль</param>
+            <returns>
+            true - если пароль верный
+            false - если пароль неверный
+            </returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.StringCheckClass.NameCheck(System.String)">
+            <summary>
+            Проверка правильности имени
+            </summary>
+            <param name="nameString">Имя</param>
+            <returns>
+            true - если имя верное
+            false - если имя неверное
+            </returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.StringCheckClass.CardNumberCheck(System.String)">
+            <summary>
+            Проверка правильности номера карты
+            </summary>
+            <param name="numberString">Номер карты</param>
+            <returns>
+            true - если номер вернен
+            false - если номер невернен
+            </returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.StringCheckClass.CardMonthCheck(System.String)">
+            <summary>
+            Проверка месяца карты
+            </summary>
+            <param name="monthString">Месяц</param>
+            <returns>
+            true - если месяц вернен
+            false - если месяц невернен
+            </returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.StringCheckClass.CardYearCheck(System.Int32)">
+            <summary>
+            Проверка год карты
+            </summary>
+            <param name="year">Год</param>
+            <returns>
+            true - если год вернен
+            false - если год невернен
+            </returns>
+        </member>
+        <member name="M:MarathonSkillsLibrary.StringCheckClass.CvcCheck(System.Int32)">
+            <summary>
+            Проверка cvc карты
+            </summary>
+            <param name="cvc">Год</param>
+            <returns>
+            true - если cvc вернен
+            false - если cvc невернен
+            </returns>
+        </member>
+    </members>
+</doc>

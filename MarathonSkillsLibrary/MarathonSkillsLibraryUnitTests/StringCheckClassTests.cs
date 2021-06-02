@@ -8,10 +8,16 @@ using MarathonSkillsLibrary;
 
 namespace MarathonSkillsLibraryUnitTests
 {
+    /// <summary>
+    /// Тестовый проект StringCheckClass
+    /// </summary>
     [TestClass]
     public class StringCheckClassTests
     {
         readonly StringCheckClass strObj = new StringCheckClass();
+        /// <summary>
+        /// Тест на пустую строку
+        /// </summary>
         [TestMethod]
         public void EmailCheck_EmptyStringInserted_falseReturned()
         {
@@ -23,6 +29,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
 
+        /// <summary>
+        /// Тест на строку состоящую только из букв
+        /// </summary>
         [TestMethod]
         public void EmailCheck_LetterStringInserted_falseReturned()
         {
@@ -34,6 +43,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
         
+        /// <summary>
+        /// Тест на строку состоящую только из цифр
+        /// </summary>
         [TestMethod]
         public void EmailCheck_NumberStringInserted_falseReturned()
         {
@@ -45,6 +57,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
         
+        /// <summary>
+        /// Тест на строку состоящую только из символов
+        /// </summary>
         [TestMethod]
         public void EmailCheck_SymbolStringInserted_falseReturned()
         {
@@ -56,6 +71,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
         
+        /// <summary>
+        /// Тест на корректно введённый Email
+        /// </summary>
         [TestMethod]
         public void EmailCheck_CorrectEmailStringInserted_trueReturned()
         {
@@ -67,6 +85,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsTrue(result);
         }
         
+        /// <summary>
+        /// Тест на строку состоящую только из букв
+        /// </summary>
         [TestMethod]
         public void PasswordCheck_LettersStringInserted_falseReturned()
         {
@@ -78,6 +99,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
         
+        /// <summary>
+        /// Тест на строку состоящую только из цифр
+        /// </summary>
         [TestMethod]
         public void PasswordCheck_NumberStringInserted_falseReturned()
         {
@@ -89,6 +113,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
         
+        /// <summary>
+        /// Тест на строку состоящую только из больших букв
+        /// </summary>
         [TestMethod]
         public void PasswordCheck_UpperLettersStringInserted_falseReturned()
         {
@@ -100,6 +127,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
         
+        /// <summary>
+        /// Тест на строку состоящую только из символов
+        /// </summary>
         [TestMethod]
         public void PasswordCheck_SymbolsStringInserted_falseReturned()
         {
@@ -111,6 +141,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
         
+        /// <summary>
+        /// Тест на правильно введённый пароль
+        /// </summary>
         [TestMethod]
         public void PasswordCheck_CorrectPasswordStringInserted_trueReturned()
         {
@@ -122,6 +155,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsTrue(result);
         }
         
+        /// <summary>
+        /// Тест на корректно написаное имя
+        /// </summary>
         [TestMethod]
         public void NameCheck_LettersStringInserted_trueReturned()
         {
@@ -133,6 +169,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsTrue(result);
         }
         
+        /// <summary>
+        /// Тест на неправильно введённого имени
+        /// </summary>
         [TestMethod]
         public void NameCheck_IncorrectStringInserted_falseReturned()
         {
@@ -144,6 +183,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
         
+        /// <summary>
+        /// Тест на неправильно введённый номер карты
+        /// </summary>
         [TestMethod]
         public void CardNumberCheck_IncorrectStringInserted_falseReturned()
         {
@@ -155,6 +197,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
         
+        /// <summary>
+        /// Тест на короткую строку 
+        /// </summary>
         [TestMethod]
         public void CardNumberCheck_ShortStringInserted_falseReturned()
         {
@@ -166,6 +211,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
         
+        /// <summary>
+        /// Тест на длинную строку
+        /// </summary>
         [TestMethod]
         public void CardNumberCheck_LongStringInserted_falseReturned()
         {
@@ -177,6 +225,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.IsFalse(result);
         }
         
+        /// <summary>
+        /// Тест на корректно введённый номер карты
+        /// </summary>
         [TestMethod]
         public void CardNumberCheck_CorrectNumbeStringInserted_trueReturned()
         {

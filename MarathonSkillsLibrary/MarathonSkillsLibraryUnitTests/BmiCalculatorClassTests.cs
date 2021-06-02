@@ -4,9 +4,15 @@ using MarathonSkillsLibrary;
 
 namespace MarathonSkillsLibraryUnitTests
 {
+    /// <summary>
+    /// Тестовый класс для BmiCalculatorClass
+    /// </summary>
     [TestClass]
     public class BmiCalculatorClassTests
     {
+        /// <summary>
+        /// Тест на нулевые входные данные
+        /// </summary>
         [TestMethod]
         public void CalculateBmi_ZeroZeroInserted_ZeroReturned()
         {
@@ -19,6 +25,9 @@ namespace MarathonSkillsLibraryUnitTests
             // Assert
             Assert.AreEqual(expectedResult, result);
         }
+        /// <summary>
+        /// Тест на отрицательные входные данные
+        /// </summary>
         [TestMethod]
         public void CalculateBmi_NegativesInserted_ZeroReturned()
         {
@@ -31,6 +40,9 @@ namespace MarathonSkillsLibraryUnitTests
             // Assert
             Assert.AreEqual(expectedResult, result);
         }
+        /// <summary>
+        /// Тест на корректность вычислений
+        /// </summary>
         [TestMethod]
         public void CalculateBmi_55and180Inserted_18Returned()
         {
@@ -44,6 +56,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.AreEqual(expectedResult, result);
         }
 
+        /// <summary>
+        /// Тест на отрицательное значение BMI
+        /// </summary>
         [TestMethod]
         public void GetBmiCategory_NegativeInserted_NedovesReturned()
         {
@@ -56,6 +71,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.AreEqual(expectedResult, result);
         }
 
+        /// <summary>
+        /// Тест на входящий ноль
+        /// </summary>
         [TestMethod]
         public void GetBmiCategory_ZeroInserted_NedovesReturned()
         {
@@ -68,6 +86,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.AreEqual(expectedResult, result);
         }
 
+        /// <summary>
+        /// Тест на корректное выведение значения "Норма"
+        /// </summary>
         [TestMethod]
         public void GetBmiCategory_20Inserted_NormaReturned()
         {
@@ -80,6 +101,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.AreEqual(expectedResult, result);
         }
 
+        /// <summary>
+        /// Тест на корректное выведение значения "Перевес"
+        /// </summary>
         [TestMethod]
         public void GetBmiCategory_27Inserted_PerevesReturned()
         {
@@ -92,6 +116,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.AreEqual(expectedResult, result);
         }
 
+        /// <summary>
+        /// Тест на корректное выведение значения "Ожирение"
+        /// </summary>
         [TestMethod]
         public void GetBmiCategory_35Inserted_OjirenieReturned()
         {
@@ -104,6 +131,9 @@ namespace MarathonSkillsLibraryUnitTests
             Assert.AreEqual(expectedResult, result);
         }
 
+        /// <summary>
+        /// Тест на корректное выведение значения "Сильное ожирение"
+        /// </summary>
         [TestMethod]
         public void GetBmiCategory_BigNumberInserted_SilnoeOjirenieReturned()
         {
