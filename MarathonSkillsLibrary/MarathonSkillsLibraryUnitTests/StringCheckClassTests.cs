@@ -148,7 +148,7 @@ namespace MarathonSkillsLibraryUnitTests
         public void PasswordCheck_CorrectPasswordStringInserted_trueReturned()
         {
             //Arrange
-            string passwordString = "PassW*rd1488";
+            string passwordString = "PassW*rd8418";
             //Act
             bool result = strObj.PasswordCheck(passwordString);
             //Assert
@@ -284,7 +284,7 @@ namespace MarathonSkillsLibraryUnitTests
         }
         
         [TestMethod]
-        public void CardYearCheck_ShortStringInserted_trueReturned()
+        public void CardYearCheck_ShortStringInserted_falseReturned()
         {
             //Arrange
             int cardString = 20;
@@ -306,7 +306,7 @@ namespace MarathonSkillsLibraryUnitTests
         }
         
         [TestMethod]
-        public void CvcCheck_ShortStringInserted_trueReturned()
+        public void CvcCheck_ShortStringInserted_falseReturned()
         {
             //Arrange
             int cardString = 12;
@@ -317,7 +317,7 @@ namespace MarathonSkillsLibraryUnitTests
         }
         
         [TestMethod]
-        public void CvcCheck_LongStringInserted_trueReturned()
+        public void CvcCheck_LongStringInserted_falseReturned()
         {
             //Arrange
             int cardString = 1222;

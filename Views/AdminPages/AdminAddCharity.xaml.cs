@@ -83,14 +83,13 @@ namespace MarathonSkills.Views.AdminPages
             {
                 NameTextBox.BorderBrush = Brushes.Red;
                 NameTextBox.BorderThickness = new Thickness(3);
-                errorString += "Проверьте правильность написания Имени\n";
+                errorString += "Проверьте правильность написания названия организации\n";
             }
-            if (String.IsNullOrWhiteSpace(DescriptionTextBox.Text)
-                || !strObj.NameCheck(DescriptionTextBox.Text))
+            if (String.IsNullOrWhiteSpace(DescriptionTextBox.Text))
             {
                 DescriptionTextBox.BorderBrush = Brushes.Red;
                 DescriptionTextBox.BorderThickness = new Thickness(3);
-                errorString += "Проверьте правильность написания Фамилии\n";
+                errorString += "Описание благотворительной организации не может быть пустым\n";
             }
             return errorString;
         }

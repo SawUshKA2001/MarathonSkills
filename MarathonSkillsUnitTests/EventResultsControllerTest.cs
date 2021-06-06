@@ -11,7 +11,7 @@ namespace MarathonSkillsUnitTests
     {
         EventResultsController resObj = new EventResultsController();
         [TestMethod]
-        public void GetDonations_GetDbData_trueReturned()
+        public void GetResults_GetDbData_trueReturned()
         {
             //Arrange
             resObj = new EventResultsController();

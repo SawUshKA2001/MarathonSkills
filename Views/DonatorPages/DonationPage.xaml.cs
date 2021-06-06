@@ -174,35 +174,35 @@ namespace MarathonSkills.Views.DonatorPages
             {
                 CardNameTextBox.BorderBrush = Brushes.Red;
                 CardNameTextBox.BorderThickness = new Thickness(3);
-                errorString += "Проверьте правильность написания данных карты\n";
+                errorString += "Проверьте правильность написания имени с лицевой стороны карты\n";
             }
             if (String.IsNullOrWhiteSpace(CardNumberTextBox.Text)
                 || !strObj.CardNumberCheck(CardNumberTextBox.Text))
             {
                 CardNumberTextBox.BorderBrush = Brushes.Red;
                 CardNumberTextBox.BorderThickness = new Thickness(3);
-                errorString += "Проверьте правильность написания номера карты\n";
+                errorString += "Проверьте правильность написания номера карты с лицевой стороны карты\n";
             }
             if (String.IsNullOrWhiteSpace(CardMonthTextBox.Text)
                 || !strObj.CardMonthCheck(CardMonthTextBox.Text))
             {
                 CardMonthTextBox.BorderBrush = Brushes.Red;
                 CardMonthTextBox.BorderThickness = new Thickness(3);
-                errorString += "Проверьте правильность написания номера карты\n";
+                errorString += "Проверьте правильность написания месяца карты с лицевой стороны карты\n";
             }
             if (String.IsNullOrWhiteSpace(CardYearTextBox.Text)
                 || !strObj.CardYearCheck(Convert.ToInt32(CardYearTextBox.Text)))
             {
                 CardYearTextBox.BorderBrush = Brushes.Red;
                 CardYearTextBox.BorderThickness = new Thickness(3);
-                errorString += "Проверьте правильность написания номера карты\n";
+                errorString += "Проверьте правильность написания года карты с лицевой стороны карты\n";
             }
             if (String.IsNullOrWhiteSpace(CvcTextBox.Text)
                 || !strObj.CvcCheck(Convert.ToInt32(CvcTextBox.Text)))
             {
                 CvcTextBox.BorderBrush = Brushes.Red;
                 CvcTextBox.BorderThickness = new Thickness(3);
-                errorString += "Проверьте правильность написания Отчества\n";
+                errorString += "Проверьте правильность написания cvc кода с задней стороны карты\n";
             }
 
 

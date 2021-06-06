@@ -178,14 +178,14 @@ namespace MarathonSkills.Views.CoordinatorPages
             {
                 PasswordPasswordBox.BorderBrush = Brushes.Red;
                 PasswordPasswordBox.BorderThickness = new Thickness(3);
-                errorString += "Проверьте правильность написания пароля\n";
+                errorString += "Пароль должен содержать цифры, латинские буквы разного регистра и символы\n";
             }
             if (String.IsNullOrWhiteSpace(RepeatPasswordBox.Password)
                 || !strObj.PasswordCheck(RepeatPasswordBox.Password))
             {
                 RepeatPasswordBox.BorderBrush = Brushes.Red;
                 RepeatPasswordBox.BorderThickness = new Thickness(3);
-                errorString += "Проверьте правильность написания пароля\n";
+                errorString += "Пароль в поле повторите пароль должен содержать цифры, латинские буквы разного регистра и символы\n";
             }
             if (PasswordPasswordBox.Password != RepeatPasswordBox.Password)
             {
